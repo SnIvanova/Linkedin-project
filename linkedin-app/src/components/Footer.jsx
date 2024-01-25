@@ -1,9 +1,9 @@
-<<<<<<< Updated upstream
-=======
+
 import React from 'react';
 import { MDBFooter, MDBContainer, MDBRow, MDBCol, MDBIcon } from 'mdb-react-ui-kit';
 
 export default function Footer() {
+
   return (
     <MDBFooter bgColor='light' className='text-center text-lg-start text-muted'>
       <section className='d-flex justify-content-center justify-content-lg-between p-4 border-bottom'>
@@ -124,5 +124,3 @@ export default function Footer() {
       </div>
     </MDBFooter>
   );
-}
->>>>>>> Stashed changes
