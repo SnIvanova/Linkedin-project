@@ -16,6 +16,9 @@ import {
   MDBCollapse,
 } from 'mdb-react-ui-kit';
 
+import { TbMessageDots } from "react-icons/tb";
+
+
 export default function Navbar() {
   const [openBasic, setOpenBasic] = useState(false);
 
@@ -24,8 +27,9 @@ export default function Navbar() {
       <MDBContainer fluid>
       <MDBNavbarBrand href='#'></MDBNavbarBrand>
         <form className='d-flex input-group w-auto'>
+            <MDBIcon fas icon="search" />
             <input type='search' className='form-control' placeholder='Type query' aria-label='Search' />
-            <MDBBtn color='primary'>Search</MDBBtn>
+            
           </form>
 
 
@@ -43,19 +47,37 @@ export default function Navbar() {
         <MDBCollapse navbar open={openBasic}>
           <MDBNavbarNav className='mr-auto mb-2 mb-lg-0'>
             <MDBNavbarItem>
-              <MDBNavbarLink active aria-current='page' href='#'>
+              <MDBNavbarLink aria-current='page' href='#'>
               <MDBIcon fas icon="home" />
+              Home
               </MDBNavbarLink>
             </MDBNavbarItem>
             <MDBNavbarItem>
               <MDBNavbarLink href='#'>
               <MDBIcon fas icon="users" />
+              My Network
               </MDBNavbarLink>
             </MDBNavbarItem>
 
             <MDBNavbarItem>
-              <MDBNavbarLink active aria-current='page' href='#'>
+              <MDBNavbarLink href='#'>
               <MDBIcon fas icon="suitcase" />
+              Jobs
+              </MDBNavbarLink>
+            </MDBNavbarItem>
+
+            <MDBNavbarItem>
+              <MDBNavbarLink href='#'>
+
+              <MDBIcon fas icon="sms" />
+              Messaging
+              </MDBNavbarLink>
+            </MDBNavbarItem>
+
+            <MDBNavbarItem>
+              <MDBNavbarLink href='#'>
+              <MDBIcon fas icon="bell" />
+              Notifications
               </MDBNavbarLink>
             </MDBNavbarItem>
 
@@ -72,11 +94,7 @@ export default function Navbar() {
               </MDBDropdown>
             </MDBNavbarItem>
 
-            <MDBNavbarItem>
-              <MDBNavbarLink disabled href='#' tabIndex={-1} aria-disabled='true'>
-                Disabled
-              </MDBNavbarLink>
-            </MDBNavbarItem>
+        
           </MDBNavbarNav>
 
         
