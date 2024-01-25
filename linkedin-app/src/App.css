@@ -1,0 +1,21 @@
+
+.about h1 {
+  user-select: none;
+}
+
+.about .FaPen {
+  width: 2em;
+  height: 2em;
+  padding: 0.5em;
+}
+
+.about .FaPen:hover {
+  background-color: rgb(235, 232, 232);
+  border-radius: 10vh;
+  z-index: 1;
+}
+
+.labelAbout {
+  font-size: 0.8em;
+}
+
