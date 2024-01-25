@@ -41,7 +41,7 @@ export default function Footer() {
             <MDBCol md="2" lg="2" xl="2" className='mx-auto mb-4'>
              
               <p>
-                <a href='#!' className='text-reset'>
+                <a href='#!' className='text-reset ' >
                 Informazioni
                 </a>
               </p>
@@ -52,12 +52,17 @@ export default function Footer() {
               </p>
               <p>
                 <a href='#!' className='text-reset'>
-                 Privacy e condizioni
+                 Privacy e condizioni {/* da fare menu a tendina per tutti mettere route a un altra pagina*/}
                 </a>
               </p>
               <p>
                 <a href='#!' className='text-reset'>
-                  Laravel
+                 Sales Solution
+                </a>
+              </p>
+              <p>
+                <a href='#!' className='text-reset'>
+                 Centro Sicurezza
                 </a>
               </p>
             </MDBCol>
@@ -66,12 +71,12 @@ export default function Footer() {
               <h6 className='text-uppercase fw-bold mb-4'>Useful links</h6>
               <p>
                 <a href='#!' className='text-reset'>
-                  Pricing
+                  
                 </a>
               </p>
               <p>
                 <a href='#!' className='text-reset'>
-                  Settings
+                 Accessibilità
                 </a>
               </p>
               <p>
