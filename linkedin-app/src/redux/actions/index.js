@@ -2,7 +2,7 @@
 
 export const GET_USER = 'GET_USER';
 
-// Retrieve the key dynamically or pass it as a parameter
+
 const key = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTc4M2QyMGMwNTgzNTAwMTg1MjMwZjUiLCJpYXQiOjE3MDYxNzcxNDksImV4cCI6MTcwNzM4Njc0OX0.PHLuYb8nvyemb5r429V2sTosQ-mV9fJXAWr1yyjVp3g';
 
 export const getUserMe = () => {
