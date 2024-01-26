@@ -11,26 +11,7 @@ export default function Footer() {
           <span>Get connected with us on social networks:</span>
         </div>
 
-        <div>
-          <a href='' className='me-4 text-reset'>
-            <MDBIcon fab icon="facebook-f" />
-          </a>
-          <a href='' className='me-4 text-reset'>
-            <MDBIcon fab icon="twitter" />
-          </a>
-          <a href='' className='me-4 text-reset'>
-            <MDBIcon fab icon="google" />
-          </a>
-          <a href='' className='me-4 text-reset'>
-            <MDBIcon fab icon="instagram" />
-          </a>
-          <a href='' className='me-4 text-reset'>
-            <MDBIcon fab icon="linkedin" />
-          </a>
-          <a href='' className='me-4 text-reset'>
-            <MDBIcon fab icon="github" />
-          </a>
-        </div>
+        
       </section>
 
       <section className=''>
@@ -67,21 +48,27 @@ export default function Footer() {
               </p>
             </MDBCol>
 
+
             <MDBCol md="3" lg="2" xl="2" className='mx-auto mb-4'>
               
               <p>
                 <a href='#!' className='text-reset'>
                   Accessibilità
+
                 </a>
               </p>
               <p>
                 <a href='#!' className='text-reset'>
+
                 Carriera
+
                 </a>
               </p>
               <p>
                 <a href='#!' className='text-reset'>
+
                  Opzioni per gli annunci pubblicitari
+
                 </a>
               </p>
               <p>
@@ -91,30 +78,44 @@ export default function Footer() {
               </p>
             </MDBCol>
             <MDBCol md="3" lg="2" xl="2" className='mx-auto mb-4'>
-              
+
+        
+
               <p>
                 <a href='#!' className='text-reset'>
-                Talent Solutions
+                  Talent Solutions
+
                 </a>
               </p>
               <p>
                 <a href='#!' className='text-reset'>
+
               Soluzioni di Marketing
+
                 </a>
               </p>
               <p>
                 <a href='#!' className='text-reset'>
+
                  Pubblicità
+
+        
+
                 </a>
               </p>
               <p>
                 <a href='#!' className='text-reset'>
+
                   Piccole Imprese
+
+
+
                 </a>
               </p>
             </MDBCol>
 
             <MDBCol md="4" lg="3" xl="3" className='mx-auto mb-md-0 mb-4'>
+
               
               <p>
               <MDBIcon fas icon="question-circle" />
@@ -137,16 +138,36 @@ export default function Footer() {
               <p>
                 <MDBIcon icon="print" className="me-3" /> + 01 234 567 89
               </p>
+
+              <div>
+                <MDBIcon fas icon="question-circle" className="me-2"/>
+                <h6>Domande? </h6>
+              </div>
+              {/*<h6 className='text-uppercase fw-bold mb-4'>
+              <MDBIcon fas icon="question-circle">
+              Requests?
+  </h6>*/}
+              <div>
+                <MDBIcon fas icon="cog" className="me-3"/>
+                <h6>Sistema il tuo account</h6>
+              </div>
+              <div>
+                <MDBIcon fas icon="shield-alt" className="me-3"/>
+                <h6>Trasparenza </h6>
+              </div>
+              
+
             </MDBCol>
           </MDBRow>
         </MDBContainer>
       </section>
 
       <div className='text-center p-4' style={{ backgroundColor: 'rgba(0, 0, 0, 0.05)' }}>
-        © 2021 Copyright:
-        <a className='text-reset fw-bold' href='https://mdbootstrap.com/'>
-          MDBootstrap.com
-        </a>
+        LinkedIn Corporation &#169; 2024
       </div>
     </MDBFooter>
+
   );}
+
+  
+
