@@ -17,31 +17,58 @@ export default function Footer() {
       <section className=''>
         <MDBContainer className='text-center text-md-start mt-5'>
           <MDBRow className='mt-3'>
-            <MDBCol md="3" lg="4" xl="3" className='mx-auto mb-4'>
-              <h6 className='text-uppercase fw-bold mb-4'>
-                <MDBIcon icon="gem" className="me-3" />
-                Company name
-              </h6>
+        
+
+            <MDBCol md="2" lg="2" xl="2" className='mx-auto mb-4'>
+             
               <p>
-                Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit amet,
-                consectetur adipisicing elit.
+                <a href='#!' className='text-reset ' >
+                Informazioni
+                </a>
+              </p>
+              <p>
+                <a href='#!' className='text-reset'>
+                Linea Guida della Community
+                </a>
+              </p>
+              <p>
+                <a href='#!' className='text-reset'>
+                 Privacy e condizioni {/* da fare menu a tendina per tutti mettere route a un altra pagina*/}
+                </a>
+              </p>
+              <p>
+                <a href='#!' className='text-reset'>
+                 Sales Solution
+                </a>
+              </p>
+              <p>
+                <a href='#!' className='text-reset'>
+                 Centro Sicurezza
+                </a>
               </p>
             </MDBCol>
 
-            <MDBCol md="2" lg="2" xl="2" className='mx-auto mb-4'>
+
+            <MDBCol md="3" lg="2" xl="2" className='mx-auto mb-4'>
+              
               <p>
                 <a href='#!' className='text-reset'>
-                  Accessibility
+                  Accessibilità
+
                 </a>
               </p>
               <p>
                 <a href='#!' className='text-reset'>
-                 Career
+
+                Carriera
+
                 </a>
               </p>
               <p>
                 <a href='#!' className='text-reset'>
-                  Advertising options
+
+                 Opzioni per gli annunci pubblicitari
+
                 </a>
               </p>
               <p>
@@ -50,31 +77,68 @@ export default function Footer() {
                 </a>
               </p>
             </MDBCol>
-
             <MDBCol md="3" lg="2" xl="2" className='mx-auto mb-4'>
+
+        
+
               <p>
                 <a href='#!' className='text-reset'>
                   Talent Solutions
+
                 </a>
               </p>
               <p>
                 <a href='#!' className='text-reset'>
-                  Marketing Solutions
+
+              Soluzioni di Marketing
+
                 </a>
               </p>
               <p>
                 <a href='#!' className='text-reset'>
-                  Advertising
+
+                 Pubblicità
+
+        
+
                 </a>
               </p>
               <p>
                 <a href='#!' className='text-reset'>
-                  Small Business
+
+                  Piccole Imprese
+
+
+
                 </a>
               </p>
             </MDBCol>
 
             <MDBCol md="4" lg="3" xl="3" className='mx-auto mb-md-0 mb-4'>
+
+              
+              <p>
+              <MDBIcon fas icon="question-circle" />
+              Domande?
+              
+              </p>
+              <span>Visita il nostro centro Assistenza!</span>
+              <p>
+              <MDBIcon fas icon="cog" />
+                Gestisci il tuo Account e le tua Privacy
+                
+              </p>
+              <span>Vai alle Impostazioni</span>
+              <p>
+              <MDBIcon fas icon="shield-alt" />
+              Trasparenza sui contenuti consigliati
+           
+              </p>
+              <span>Scopri di più sui contenuti consigliati</span>
+              <p>
+                <MDBIcon icon="print" className="me-3" /> + 01 234 567 89
+              </p>
+
               <div>
                 <MDBIcon fas icon="question-circle" className="me-2"/>
                 <h6>Requests? </h6>
@@ -92,6 +156,7 @@ export default function Footer() {
                 <h6>Transparency on recommended content</h6>
               </div>
               
+
             </MDBCol>
           </MDBRow>
         </MDBContainer>
@@ -101,5 +166,9 @@ export default function Footer() {
         LinkedIn Corporation &#169; 2024
       </div>
     </MDBFooter>
+
+  );}
+
   );
   }
+
