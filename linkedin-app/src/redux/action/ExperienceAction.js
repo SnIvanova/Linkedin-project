@@ -71,7 +71,7 @@ export const getUserExperience = async (dispatch, getState) => {
       {
         headers: {
           "Content-type": "application/json",
-          Authorization: API_KEY,
+          Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWIzYzIxYjMxYTczZjAwMTlkNWM5YTMiLCJpYXQiOjE3MDYyNzk0NTEsImV4cCI6MTcwNzQ4OTA1MX0.0eUz7rcVBe2uDNc802lP4Oha_gKaUSC_6_qKQPrtRUw',
         },
       }
     );
@@ -103,7 +103,7 @@ export const createExperience = async (dispatch, getState) => {
       {
         method: "POST",
         headers: {
-          Authorization:'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWIzYzIxYjMxYTczZjAwMTlkNWM5YTMiLCJpYXQiOjE3MDYyNzk0NTEsImV4cCI6MTcwNzQ4OTA1MX0.0eUz7rcVBe2uDNc802lP4Oha_gKaUSC_6_qKQPrtRUw',
+          Authorization:'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWIzYzIxYjMxYTczZjAwMTlkNWM5YTMiLCJpYXQiOjE3MDYyNzk0NTEsImV4cCI6MTcwNzQ4OTA1MX0.0eUz7rcVBe2uDNc802lP4Oha_gKaUSC_6_qKQPrtRUw',
           "Content-type": "application/json",
         },
 
@@ -156,7 +156,7 @@ export const getSingleExperience = async (dispatch, getState, expId) => {
         headers: {
           "Content-type": "application/json",
 
-          Authorization:'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWIzYzIxYjMxYTczZjAwMTlkNWM5YTMiLCJpYXQiOjE3MDYyNzk0NTEsImV4cCI6MTcwNzQ4OTA1MX0.0eUz7rcVBe2uDNc802lP4Oha_gKaUSC_6_qKQPrtRUw',
+          Authorization:'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWIzYzIxYjMxYTczZjAwMTlkNWM5YTMiLCJpYXQiOjE3MDYyNzk0NTEsImV4cCI6MTcwNzQ4OTA1MX0.0eUz7rcVBe2uDNc802lP4Oha_gKaUSC_6_qKQPrtRUw',
         },
       }
     );
@@ -185,7 +185,7 @@ export const editExperience = async (dispatch, getState) => {
         method: "PUT",
         headers: {
           "Content-type": "application/json",
-          Authorization: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWIzYzIxYjMxYTczZjAwMTlkNWM5YTMiLCJpYXQiOjE3MDYyNzk0NTEsImV4cCI6MTcwNzQ4OTA1MX0.0eUz7rcVBe2uDNc802lP4Oha_gKaUSC_6_qKQPrtRUw',
+          Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWIzYzIxYjMxYTczZjAwMTlkNWM5YTMiLCJpYXQiOjE3MDYyNzk0NTEsImV4cCI6MTcwNzQ4OTA1MX0.0eUz7rcVBe2uDNc802lP4Oha_gKaUSC_6_qKQPrtRUw',
         },
         body: JSON.stringify(expToUpdate),
       }
@@ -215,7 +215,7 @@ export const removeExperience = async (dispatch, getState) => {
       {
         method: "DELETE",
         headers: {
-          Authorization: API_KEY,
+          Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWIzYzIxYjMxYTczZjAwMTlkNWM5YTMiLCJpYXQiOjE3MDYyNzk0NTEsImV4cCI6MTcwNzQ4OTA1MX0.0eUz7rcVBe2uDNc802lP4Oha_gKaUSC_6_qKQPrtRUw',
         },
       }
     );
