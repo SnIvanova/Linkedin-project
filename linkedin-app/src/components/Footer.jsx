@@ -135,13 +135,11 @@ export default function Footer() {
            
               </p>
               <span>Scopri di più sui contenuti consigliati</span>
-              <p>
-                <MDBIcon icon="print" className="me-3" /> + 01 234 567 89
-              </p>
+             
 
               <div>
                 <MDBIcon fas icon="question-circle" className="me-2"/>
-                <h6>Requests? </h6>
+                <h6>Domande? </h6>
               </div>
               {/*<h6 className='text-uppercase fw-bold mb-4'>
               <MDBIcon fas icon="question-circle">
@@ -149,11 +147,11 @@ export default function Footer() {
   </h6>*/}
               <div>
                 <MDBIcon fas icon="cog" className="me-3"/>
-                <h6>Manage your account and your privacy</h6>
+                <h6>Sistema il tuo account</h6>
               </div>
               <div>
                 <MDBIcon fas icon="shield-alt" className="me-3"/>
-                <h6>Transparency on recommended content</h6>
+                <h6>Trasparenza </h6>
               </div>
               
 
