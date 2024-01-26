@@ -31,4 +31,6 @@ p>a{font-size: small;
   font-weight: 300;}
 
 
+  .fio{display:flex !important;
+  justify-content: end !important;}
 
