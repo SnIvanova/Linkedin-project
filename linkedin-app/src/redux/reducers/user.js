@@ -1,7 +1,8 @@
-import { GET_USER, GET_CURRENT_USER, UPDATE_PROFILE } from '../actions/user';
+import { GET_USER, GET_CURRENT_USER, UPDATE_PROFILE, UPDATE_PROFILE_IMAGE } from '../actions/user';
 
 const initialState = {
-  userMe: null, 
+  userMe: null,
+  profilePic: null,
 };
 
 const userReducer = (state = initialState, action) => {
@@ -18,10 +19,15 @@ const userReducer = (state = initialState, action) => {
       };
 
     case UPDATE_PROFILE:
-        return {
-          ...state,
-          userMe: action.payload || null,
-        };
+      return {
+        ...state,
+        userMe: action.payload || null,
+      };
+    case UPDATE_PROFILE_IMAGE:
+      return {
+        ...state,
+        profilePic: action.payload || null,
+      };
     default:
       return state;
   }

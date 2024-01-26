@@ -2,11 +2,11 @@
 export const GET_USER = 'GET_USER';
 export const GET_CURRENT_USER = 'GET_CURRENT_USER';
 export const UPDATE_PROFILE = 'UPDATE_PROFILE';
+export const UPDATE_PROFILE_IMAGE = 'UPDATE_PROFILE_IMAGE';
 
 
-const key = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTc4M2QyMGMwNTgzNTAwMTg1MjMwZjUiLCJpYXQiOjE3MDYxNzcxNDksImV4cCI6MTcwNzM4Njc0OX0.PHLuYb8nvyemb5r429V2sTosQ-mV9fJXAWr1yyjVp3g';
 
-export const getUserMe = () => {
+export const getUserMe = (key) => {
   return async (dispatch) => {
     try {
       const res = await fetch('https://striveschool-api.herokuapp.com/api/profile/me', {
@@ -55,11 +55,11 @@ export const getUserProfile = (userId) => {
     };
   };
 
-  export const updateProfile = (userId, updatedData) => {
+  export const updateProfile = (key, updatedData, ) => {
     return async (dispatch) => {
       try {
         const res = await fetch(
-          `https://striveschool-api.herokuapp.com/api/profile/${userId}`,
+          `https://striveschool-api.herokuapp.com/api/profile/`,
           {
             method: 'PUT',
             headers: {
@@ -75,6 +75,41 @@ export const getUserProfile = (userId) => {
   
           dispatch({
             type: UPDATE_PROFILE,
+            payload: data,
+          });
+        } else {
+          throw new Error('Error updating user profile');
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    };
+  };
+
+  export const updateProfileImage = (userId, updatedData, key) => {
+    return async (dispatch) => {
+      try {
+
+        const formData = new FormData();
+        formData.append('profile', updatedData);
+
+        const res = await fetch(
+          `https://striveschool-api.herokuapp.com/api/profile/${userId}/picture`,
+          {
+            method: 'PUT',
+            headers: {
+              'Content-Type': 'multipart/form-data',
+              Authorization: key,
+            },
+            body: formData,
+          }
+        );
+  
+        if (res.ok) {
+          const data = await res.json();
+  
+          dispatch({
+            type: UPDATE_PROFILE_IMAGE,
             payload: data,
           });
         } else {
