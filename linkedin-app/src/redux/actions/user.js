@@ -62,7 +62,7 @@ export const getUserProfile = (userId) => {
         console.log('Updated data:', updatedData);
   
         const res = await fetch(
-          `https://striveschool-api.herokuapp.com/api/profile/${userId}`,
+          `https://striveschool-api.herokuapp.com/api/profile/`,
           {
             method: 'PUT',
             body: JSON.stringify(updatedData),
@@ -83,6 +83,8 @@ export const getUserProfile = (userId) => {
             payload: data,
           });
         } else {
+          const errorData = await res.json();
+          console.error('error update: ' + errorData)
           throw new Error('Error updating user profile');
         }
       } catch (error) {

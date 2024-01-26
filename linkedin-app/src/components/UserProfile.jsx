@@ -1,47 +1,44 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { format } from 'date-fns';
-//bootstrap and icons
 import { Button, Card, Col, Image, Row, ListGroup } from 'react-bootstrap';
 import { HiOutlinePencil } from 'react-icons/hi';
 import { FaArrowRightLong } from "react-icons/fa6";
-//actions
 import { getUserProfile, updateProfile } from '../redux/actions/user';
-//components
-import Activity from '../components/Profile/Activity'
-import Analytics from '../components/Profile/Analytics'
-import Sidebar from '../components/Profile/Sidebar'
+// Import 
+import Activity from '../components/Profile/Activity';
+import Analytics from '../components/Profile/Analytics';
+import Sidebar from '../components/Profile/Sidebar';
+import EditProfileModal from '../components/Profile/EditProfileModal';  
 
 const UserProfile = () => {
   const { userId } = useParams();
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user.userMe);
-  const [updatedData, setUpdatedData] = React.useState({});
-
-useEffect(() => {
-  if (user) {
-    setUpdatedData({
-      name: user.name,
-      surname: user.surname,
-    });
-  }
-}, [user]);
-
-  const handleUpdateProfile = () => {
-    console.log("handleUpdateProfile clicked");
-    dispatch(updateProfile(userId, updatedData));
-  };
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     dispatch(getUserProfile(userId));
   }, [dispatch, userId]);
 
+  const handleShowModal = () => {
+    setShowModal(true);
+  };
+
+  const handleHideModal = () => {
+    setShowModal(false);
+  };
+
+  const handleSave = (updatedData) => {
+    dispatch(updateProfile(userId, updatedData));
+  };
+
   if (!user) {
     return <div>Loading...</div>;
   }
 
-  const {area,bio,createdAt,email,image,name,surname,title,updatedAt,username} = user;
+  const { area, bio, createdAt, email, image, name, surname, title, updatedAt, username } = user;
   const CreatedAt = format(new Date(createdAt), 'MMMM dd, yyyy');
   const UpdatedAt = format(new Date(updatedAt), 'MMMM dd, yyyy');
 
@@ -50,7 +47,7 @@ useEffect(() => {
     <Col md={8}>
     <Card className='rounded-5'>
       <Card.Img src={image} alt='Background Image' height={350} />
-      <Card.ImgOverlay>
+      
         <Button variant='light' className='rounded-circle float-end'>
           <Image src={image} height={20} width={20} />
         </Button>
@@ -59,10 +56,10 @@ useEffect(() => {
             <Image src={image} height={100} width={100} />
           </Col>
         </Row>
-      </Card.ImgOverlay>
+      
       <Card.Body>
         <Button variant='light' className='fs-3 float-end'>
-          <HiOutlinePencil  onClick={handleUpdateProfile}/>
+          <HiOutlinePencil  onClick={handleShowModal}/>
         </Button>
         <Row>
           <Col md={6}>
@@ -86,6 +83,7 @@ useEffect(() => {
         <Activity />
     </Col>
     <Sidebar />
+    <EditProfileModal show={showModal} onHide={handleHideModal} onSave={handleSave} user={user} />
 </Row>
 )
 };  
