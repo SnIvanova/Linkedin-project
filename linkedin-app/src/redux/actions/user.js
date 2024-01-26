@@ -58,17 +58,22 @@ export const getUserProfile = (userId) => {
   export const updateProfile = (userId, updatedData) => {
     return async (dispatch) => {
       try {
+        console.log('Updating profile for userId:', userId);
+        console.log('Updated data:', updatedData);
+  
         const res = await fetch(
           `https://striveschool-api.herokuapp.com/api/profile/${userId}`,
           {
             method: 'PUT',
+            body: JSON.stringify(updatedData),
             headers: {
               'Content-Type': 'application/json',
               Authorization: key,
             },
-            body: JSON.stringify(updatedData),
           }
         );
+  
+        console.log('Response:', res);
   
         if (res.ok) {
           const data = await res.json();
