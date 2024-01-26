@@ -1,4 +1,10 @@
 
+.navbarSot {
+    display: flex;     
+    align-items: center;
+}
+
+
 .about h1 {
   user-select: none;
 }
@@ -18,4 +24,5 @@
 .labelAbout {
   font-size: 0.8em;
 }
+
 

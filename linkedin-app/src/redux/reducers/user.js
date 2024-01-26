@@ -1,20 +1,20 @@
-import { GET_USER } from '../actions'
+import { GET_USER } from '../actions';
 
 const initialState = {
-  userMe: [],
-}
+  userMe: []
+};
 
 const userReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_USER:
       return {
         ...state,
-        userMe: action.payload,
-      }
+        userMe: action.payload || null, 
+      };
 
     default:
-      return state
+      return state;
   }
-}
+};
 
-export default userReducer
+export default userReducer;
