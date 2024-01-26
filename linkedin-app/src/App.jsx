@@ -1,7 +1,8 @@
 import './App.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+//components
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ProfilePage from './pages/ProfilePage';
 import UserProfile from './components/UserProfile';
 
