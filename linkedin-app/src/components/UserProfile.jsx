@@ -1,43 +1,93 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import { format } from 'date-fns';
+//bootstrap and icons
+import { Button, Card, Col, Image, Row, ListGroup } from 'react-bootstrap';
+import { HiOutlinePencil } from 'react-icons/hi';
+import { FaArrowRightLong } from "react-icons/fa6";
+//actions
+import { getUserProfile, updateProfile } from '../redux/actions/user';
+//components
+import Activity from '../components/Profile/Activity'
+import Analytics from '../components/Profile/Analytics'
+import Sidebar from '../components/Profile/Sidebar'
 
 const UserProfile = () => {
-  const { userId } = useParams();  
-  const [user, setUser] = useState(null);
+  const { userId } = useParams();
+  const dispatch = useDispatch();
+  const user = useSelector((state) => state.user.userMe);
+  const [updatedData, setUpdatedData] = React.useState({});
+
+useEffect(() => {
+  if (user) {
+    setUpdatedData({
+      name: user.name,
+      surname: user.surname,
+    });
+  }
+}, [user]);
+
+  const handleUpdateProfile = () => {
+    console.log("handleUpdateProfile clicked");
+    dispatch(updateProfile(userId, updatedData));
+  };
 
   useEffect(() => {
-    const fetchUserProfile = async () => {
-      try {
-        const res = await fetch(
-          `https://striveschool-api.herokuapp.com/api/profile/${userId}`
-        );
-
-        if (res.ok) {
-          const data = await res.json();
-          setUser(data);
-        } else {
-          throw new Error('Error fetching user data');
-        }
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
-    fetchUserProfile();
-  }, [userId]);
+    dispatch(getUserProfile(userId));
+  }, [dispatch, userId]);
 
   if (!user) {
     return <div>Loading...</div>;
   }
 
+  const {area,bio,createdAt,email,image,name,surname,title,updatedAt,username} = user;
+  const CreatedAt = format(new Date(createdAt), 'MMMM dd, yyyy');
+  const UpdatedAt = format(new Date(updatedAt), 'MMMM dd, yyyy');
+
   return (
-    <div>
-      <h2>User Profile</h2>
-      <p>Name: {user.name}</p>
-      <p>Surname: {user.surname}</p>
+    <Row className='p-5'>
+    <Col md={8}>
+    <Card className='rounded-5'>
+      <Card.Img src={image} alt='Background Image' height={350} />
       
-    </div>
-  );
-};
+        <Button variant='light' className='rounded-circle float-end'>
+          <Image src={image} height={20} width={20} />
+        </Button>
+        <Row className='justify-content-start align-items-center'>
+          <Col xs='auto' className='bg-white rounded-circle p-5'>
+            <Image src={image} height={100} width={100} />
+          </Col>
+        </Row>
+      
+      <Card.Body>
+      <Button variant='light' className='fs-3 float-end ' onClick={handleUpdateProfile}>
+        here
+      </Button>
+        <Row>
+          <Col md={6}>
+            <Card.Title>{name} {surname}</Card.Title>
+            <Card.Text className='fw-bold'>{title} at {area}</Card.Text>
+            <Card.Text className='text-muted'>{bio}</Card.Text>
+            <Card.Text className='text-muted'>Email: {email}</Card.Text>
+            <Card.Text className='text-muted'>Username: {username}</Card.Text>
+            <Card.Text className='text-muted'>Joined: {CreatedAt}</Card.Text>
+            <Card.Text className='text-muted'>Last updated: {UpdatedAt}</Card.Text>
+          </Col>
+          
+        </Row>
+        
+      </Card.Body>
+      <Card.Footer className='text-muted text-center'>
+        <ListGroup.Item action>Show all analytics  <FaArrowRightLong /></ListGroup.Item>
+      </Card.Footer>
+    </Card>
+        <Analytics />
+        <Activity />
+    </Col>
+    <Sidebar />
+</Row>
+)
+};  
 
 export default UserProfile;

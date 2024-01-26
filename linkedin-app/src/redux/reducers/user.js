@@ -1,7 +1,7 @@
-import { GET_USER } from '../actions';
+import { GET_USER, GET_CURRENT_USER, UPDATE_PROFILE } from '../actions/user';
 
 const initialState = {
-  userMe: []
+  userMe: null, 
 };
 
 const userReducer = (state = initialState, action) => {
@@ -9,9 +9,19 @@ const userReducer = (state = initialState, action) => {
     case GET_USER:
       return {
         ...state,
-        userMe: action.payload || null, 
+        userMe: action.payload || null,
+      };
+    case GET_CURRENT_USER:
+      return {
+        ...state,
+        userMe: action.payload || null,
       };
 
+    case UPDATE_PROFILE:
+        return {
+          ...state,
+          userMe: action.payload || null,
+        };
     default:
       return state;
   }
