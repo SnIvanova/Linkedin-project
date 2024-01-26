@@ -50,7 +50,7 @@ useEffect(() => {
     <Col md={8}>
     <Card className='rounded-5'>
       <Card.Img src={image} alt='Background Image' height={350} />
-      
+      <Card.ImgOverlay>
         <Button variant='light' className='rounded-circle float-end'>
           <Image src={image} height={20} width={20} />
         </Button>
@@ -59,11 +59,11 @@ useEffect(() => {
             <Image src={image} height={100} width={100} />
           </Col>
         </Row>
-      
+      </Card.ImgOverlay>
       <Card.Body>
-      <Button variant='light' className='fs-3 float-end ' onClick={handleUpdateProfile}>
-        here
-      </Button>
+        <Button variant='light' className='fs-3 float-end'>
+          <HiOutlinePencil  onClick={handleUpdateProfile}/>
+        </Button>
         <Row>
           <Col md={6}>
             <Card.Title>{name} {surname}</Card.Title>
