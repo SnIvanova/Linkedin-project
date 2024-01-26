@@ -7,6 +7,7 @@ import ProfilePage from './pages/ProfilePage'
 import UserProfile from "./components/UserProfile";
 
 
+
 function App() {
   return (
 
@@ -14,9 +15,10 @@ function App() {
       <Navbar />
       <Routes>
         <Route path='/' element={<ProfilePage />}/>
-          
+        
         <Route path="/profile/:userId" component={UserProfile} />
       </Routes>
+   
       <Footer />
     </BrowserRouter>
   )
