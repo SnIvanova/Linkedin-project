@@ -3,22 +3,21 @@ import Modal from 'react-bootstrap/Modal';
 import { Form } from 'react-bootstrap';
 import { useState } from 'react';
 
-export default function EditProfileModal({show, onHide}) {
+export default function EditProfileModal({show, onHide, onSave}) {
 
     const [userProfile, setUserProfile] = useState({firstname:'', lastname:'', email:'', bio:'', title:'', area:''  })
 
     const handleChange = (e) => {
-        const { name, value } = e.target;
-        setUserProfile((prevData) => ({
-          ...prevData,
-          [name]: value,
-        }));
-      };
-    
-      const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log('Form submitted:', userProfile);
-      };
+    const { name, value } = e.target;
+    setUserProfile((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onSave(userProfile); 
+  };
     
     return (
         <Modal
