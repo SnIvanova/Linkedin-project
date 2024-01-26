@@ -1,20 +1,25 @@
+import { Switch, Route, BrowserRouter as Router } from 'react-router-dom';
 
-
-
-import './App.css'
-import Navbar from './components/Navbar'
-import Footer from './components/Footer'
-
+//components
+import NavbarL from './components/Navbar';
+import UserProfile from "./components/UserProfile";
+import Footer from './components/Footer';
 
 function App() {
-  
-
   return (
-    <>
-      <Navbar/>
-      <Footer/>
-    </>
-  )
+    
+    <Router>
+      <>
+        <NavbarL />
+        <Switch>
+          
+          <Route path="/profile/:userId" component={UserProfile} />
+          
+        </Switch>
+        <Footer />
+      </>
+    </Router>
+  );
 }
 
-export default App
+export default App;
