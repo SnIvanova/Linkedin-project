@@ -135,9 +135,7 @@ export default function Footer() {
            
               </p>
               <span>Scopri di più sui contenuti consigliati</span>
-              <p>
-                <MDBIcon icon="print" className="me-3" /> + 01 234 567 89
-              </p>
+             
 
               <div>
                 <MDBIcon fas icon="question-circle" className="me-2"/>
