@@ -97,7 +97,7 @@ const SingleExp = ({ exp }) => {
 
             <Card.Text>{exp.description}</Card.Text>
           </Card.Body>
-                  
+  
         </Card>
       </Col>
       <Modal show={show} onHide={handleClose} size="lg">
