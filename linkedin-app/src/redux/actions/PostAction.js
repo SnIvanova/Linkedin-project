@@ -10,10 +10,7 @@ export const SET_POST_ID = "SET_POST_ID";
 
 /* EXPORT AZIONI POST */
 export const setPosts = (data) => {
-  return {
-    type: SET_POSTS,
-    payload: data,
-  };
+  return 
 };
 
 export const setSinglePost = (data) => {
@@ -54,10 +51,10 @@ const API_KEY =
   'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWIzYzIxYjMxYTczZjAwMTlkNWM5YTMiLCJpYXQiOjE3MDYyNzk0NTEsImV4cCI6MTcwNzQ4OTA1MX0.0eUz7rcVBe2uDNc802lP4Oha_gKaUSC_6_qKQPrtRUw';
 
 /* GET - ALL POSTS */
-export const getPosts = async (dispatch, getState) => {
+export const getPosts = () => {
+  return async (dispatch, getState) => {
   let state = getState();
-  let userID = state.user.thisProfile.userID;
-  console.log(userID);
+  
 
   try {
     let response = await fetch(
@@ -71,7 +68,10 @@ export const getPosts = async (dispatch, getState) => {
     );
     if (response.ok) {
       let posts = await response.json();
-      dispatch(setPosts(posts));
+      dispatch({
+        type: SET_POSTS,
+        payload: posts,
+      });
       console.log(posts);
     } else {
       console.log("Error has happened with the GET request");
@@ -79,7 +79,7 @@ export const getPosts = async (dispatch, getState) => {
   } catch (error) {
     console.log("GET Fetch try failed,", error);
   }
-};
+}}
 
 /* POST - NEW POST*/
 export const createPost = (postText, formData) => {
