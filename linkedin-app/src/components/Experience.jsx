@@ -1,88 +1,152 @@
-import { Container, Row, Col, Modal } from "react-bootstrap";
+import { Col, Row, Dropdown } from 'react-bootstrap'
 import {
-  BsPlusLg,
-  BsPencil,
-  BsBriefcaseFill,
-  BsClockFill,
-} from "react-icons/bs";
-import { Dropdown } from "react-bootstrap";
-import "bootstrap/dist/css/bootstrap.min.css";
-import React, { useState } from "react";
-import AddExperience from "./FormExperience/AddExperience";
-import BreakExperience from "./FormExperience/BreakExperience";
-import SingleExp from "./SingleExp";
-import { useSelector } from "react-redux";
+  BriefcaseFill,
+  CalendarDate,
+  PencilFill,
+  Plus, 
+} from 'react-bootstrap-icons'
 
-const Experience = () => {
-  const [showDropdown, setShowDropdown] = useState(false);
-  const [show, setShow] = useState(false);
-  const [showPause, setShowPause] = useState(false);
-  const listUserExp = useSelector((state) => state.experience.experiences);
+import { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux'
+import { format } from 'date-fns'
+import axios from 'axios';
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
-  const handleClose2 = () => setShowPause(false);
-  const handleShow2 = () => setShowPause(true);
+import EditExperienceModal from './EditExperienceModal';
+//import ModaleExperiences from './ModaleExperiences';
+
+
+
+const Experiences = () => {
+  const [experience, setExperience] = useState([])
+  const user = useSelector((state) => state.user.userMe)
+  const [showModal, setShowModal] = useState(false);
+ 
+  const [selectedExperience, setSelectedExperience] = useState()
+
+const key = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTc4M2QyMGMwNTgzNTAwMTg1MjMwZjUiLCJpYXQiOjE3MDYxNzcxNDksImV4cCI6MTcwNzM4Njc0OX0.PHLuYb8nvyemb5r429V2sTosQ-mV9fJXAWr1yyjVp3g'
+
+
+const getExperiences = async () => {
+  try {
+    const response = await axios.get(
+      `https://striveschool-api.herokuapp.com/api/profile/${user._id}/experiences`,
+      {
+        headers: {
+          Authorization: key,
+        },
+      }
+    );
+
+    const data = response.data;
+    setExperience(data);
+  } catch (error) {
+    console.log('errore', error);
+    throw new Error('errore di carica ex su profilo!');
+  }
+};
+
+  useEffect(() => {
+    if (user.length !== 0) {
+      getExperiences()
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [user])
+
+  const handleExperienceClick = (ex) => {
+    setSelectedExperience(ex)
+    setShowModal(true);
+    
+  }
+
+  const handelExperienceImgClick = (ex) => {
+    setSelectedExperience(ex)
+    setShowModal(true);
+   
+  }
+  const handleModalClose = () => {
+    setShowModal(false);
+  };
+
+  const handleExperienceSave = (updatedExperience) => { console.log('Updated Experience:', updatedExperience);}
+
 
   return (
     <>
-      <Container className="mt-4 p-4 border rounded-3 bg-light bg-light">
+      <Col className="mt-4 p-4 border rounded-3 bg-light bg-light">
         <Row>
-          <div className="d-flex justify-content-between">
-            <h4>Esperienza</h4>
-            <div className="d-flex justify-content-between">
-              <Dropdown id="dropdown-basic" variant="transparent">
-                <Dropdown.Toggle
-                  id="dropdown-autoclose-true "
-                  variant="link"
-                  className="text-dark"
-                >
-                  <BsPlusLg />
+          <Col className="d-flex justify-content-between align-items-center h-25">
+            <h5 className="fw-bold mb-5 fs-3">Esperienze</h5>
+            <div className="d-flex align-items-center mb-5">
+              <Dropdown id="dropdown-basic" variant="transparent" align="end">
+                <Dropdown.Toggle id="dropdownMenuicon" className="text-dark">
+                  <Plus className="fs-1 me-1 text-white" />
                 </Dropdown.Toggle>
-                <Dropdown.Menu>
-                  <Dropdown.Item onClick={handleShow}>
-                    <BsBriefcaseFill className="me-2" /> Aggiungi Posizione
-                    Lavorativa
+
+                
+                <Dropdown.Menu className="end">
+                  <Dropdown.Item
+                    href="#/action-1"
+                    onClick={() => {
+                    setShowModal(true);
+                    console.log('devocambiare per il modulo');
+                    }}
+                    >
+
+                    
+                    <BriefcaseFill /> Aggiungi posizione lavorativa{' '}
                   </Dropdown.Item>
-                  <Dropdown.Item onClick={handleShow2}>
-                    <BsClockFill className="me-2" /> Aggiungi Pausa Lavorativa
+                  <Dropdown.Item href="#/action-2">
+                    <CalendarDate /> Aggiungi pausa lavorativa
                   </Dropdown.Item>
                 </Dropdown.Menu>
               </Dropdown>
             </div>
-          </div>
-
-          {/* ADDEXPERIENCE */}
-          <div id="modal">
-            <Modal show={show} onHide={handleClose} size="lg">
-              <Modal.Header closeButton>
-                <Modal.Title>Aggiungi esperienza</Modal.Title>
-              </Modal.Header>
-              <Modal.Body>
-                <AddExperience handleClose={handleClose} />
-              </Modal.Body>
-            </Modal>
-          </div>
-
-                    {/* BREAKEXPERIENCE */}
-                    <Modal show={showPause} onHide={handleClose2} size="lg">
-            <Modal.Header closeButton>
-              <Modal.Title>Aggiungi pausa lavorativa</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-              <BreakExperience handleClose2={handleClose2} />
-            </Modal.Body>
-          </Modal>
-
-          {/* EDIT EXPERIENCE */}
+          </Col>
         </Row>
+        <EditExperienceModal
+  onHide={handleModalClose}
+  show={showModal}
+  experience={selectedExperience}
+  id={user._id}  
+  selectedExperience={selectedExperience}
+  setSelectedExperience={setSelectedExperience}
+/>
 
-        {listUserExp.slice(0, listUserExp.length).map((exp, i) => (
-          <SingleExp exp={exp} key={i}></SingleExp>
-        ))}
-      </Container>
+        <Row className="flex-column">
+          {experience.map((ex) => (
+            <Col key={ex._id} className="mb-3 d-flex justify-content-between">
+              <div className="d-flex">
+                <div className="me-3">
+                  <img
+                    src={"ex.image ? ex.image : logo"}
+                    alt="immagine azienda"
+                    style={{ width: '60px', height: '60px', cursor: 'pointer' }}
+                    onClick={() => handelExperienceImgClick(ex)}
+                  />
+                </div>
+                <div>
+                  <p className="fw-bold m-0 fs-3">{ex.role}</p>
+                  <p className="m-0">{ex.company}</p>
+                  <p className="m-0 text-black-50">
+                    {format(new Date(ex.startDate), 'yyyy/MM/dd')} |{' '}
+                    {format(new Date(ex.endDate), 'yyyy/MM/dd')}
+                  </p>
+                  <p className="m-0 text-black-50">{ex.area}</p>
+                  <p className="m-0">{ex.description}</p>
+                </div>
+              </div>
+              <PencilFill
+                className="fs-5"
+                onClick={() => handleExperienceClick(ex)}
+                style={{ cursor: 'pointer' }}
+              />
+            </Col>
+          ))}
+        </Row>
+      </Col>
+     
     </>
-  );
-};
+  )
+}
 
-export default Experience;
+export default Experiences
