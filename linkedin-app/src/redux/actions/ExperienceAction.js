@@ -91,7 +91,7 @@ export const getUserExperience = async (dispatch, getState) => {
 /* POST - NEW EXPERIENCE*/
 export const createExperience = async (dispatch, getState) => {
   let state = getState();
-  let userID = state.user.myProfile._id;
+  let userID = state.user.userID._id;
   let newExp = state.experience.newExp;
   // console.log(JSON.stringify(singleExperience));
 
@@ -103,7 +103,7 @@ export const createExperience = async (dispatch, getState) => {
       {
         method: "POST",
         headers: {
-          Authorization:'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NWIzYzIxYjMxYTczZjAwMTlkNWM5YTMiLCJpYXQiOjE3MDYyNzk0NTEsImV4cCI6MTcwNzQ4OTA1MX0.0eUz7rcVBe2uDNc802lP4Oha_gKaUSC_6_qKQPrtRUw',
+          Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTc4M2QyMGMwNTgzNTAwMTg1MjMwZjUiLCJpYXQiOjE3MDYxNzcxNDksImV4cCI6MTcwNzM4Njc0OX0.PHLuYb8nvyemb5r429V2sTosQ-mV9fJXAWr1yyjVp3g',
           "Content-type": "application/json",
         },
 

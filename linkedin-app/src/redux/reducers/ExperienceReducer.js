@@ -6,7 +6,7 @@ import {
   SET_EXP_ID,
   SET_NEW_EXP,
   SET_TO_UPDATE,
-} from "../action/ExperienceAction";
+} from "../actions/ExperienceAction";
 
 const initialState = {
   experiences: [],

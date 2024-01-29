@@ -1,6 +1,6 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 
-import UserReducer from "../reducers/UserReducer";
+import UserReducer from "../reducers/user";
 import ExperienceReducer from "../reducers/ExperienceReducer";
 import PostReducer from "../reducers/PostReducer";
 

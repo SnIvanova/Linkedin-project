@@ -1,10 +1,10 @@
-
+//import { henKey } from '../dati';
 export const GET_USER = 'GET_USER';
 export const GET_CURRENT_USER = 'GET_CURRENT_USER';
 export const UPDATE_PROFILE = 'UPDATE_PROFILE';
 export const UPDATE_PROFILE_IMAGE = 'UPDATE_PROFILE_IMAGE';
 
-
+const key = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTc4M2QyMGMwNTgzNTAwMTg1MjMwZjUiLCJpYXQiOjE3MDYxNzcxNDksImV4cCI6MTcwNzM4Njc0OX0.PHLuYb8nvyemb5r429V2sTosQ-mV9fJXAWr1yyjVp3g'
 
 export const getUserMe = (key) => {
   return async (dispatch) => {
