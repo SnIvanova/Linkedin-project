@@ -4,16 +4,17 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import ProfilePage from './pages/ProfilePage';
-import UserProfile from './components/UserProfile';
 import NotFound from './pages/NotFound';
+import HomePage from './pages/HomePage';
+import MainProfile from './components/MainProfile';
 
 function App() {
   return (
     <BrowserRouter>
       <Navbar />
       <Routes>
-        <Route path="/" element={<ProfilePage />} />
-        <Route path="/profile/:userId" element={<UserProfile />} />
+        <Route path="/" element={<HomePage/>} />
+        <Route path="/profile/:userId" element={<ProfilePage />} />
         <Route path='/*' element={<NotFound/>}/>
       </Routes>
       <Footer />
