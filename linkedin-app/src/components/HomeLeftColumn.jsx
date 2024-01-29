@@ -1,5 +1,5 @@
 import React from 'react'
-import { Image, Card, Accordion, Container } from 'react-bootstrap'
+import { Button, Image, Card, Accordion, Container } from 'react-bootstrap'
 
 import { BookmarkFill } from 'react-bootstrap-icons'
 import { FiPlus } from "react-icons/fi";

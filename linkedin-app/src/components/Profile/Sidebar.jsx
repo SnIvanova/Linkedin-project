@@ -22,7 +22,7 @@ export default function Sidebar() {
                 }
                 return response.json();
             })
-            .then((data) => setUserData(data.sort(() => (Math.floor(Math.random() - 0.5)))))
+            .then((data) => setUserData(data.sort(() => (Math.ceil(Math.random() - 0.5)))))
             .catch((error) => console.error(error));
     };
 
