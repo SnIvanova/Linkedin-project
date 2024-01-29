@@ -9,7 +9,7 @@ import {
 import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { format } from 'date-fns'
-import axios from 'axios';
+
 
 import EditExperienceModal from './EditExperienceModal';
 //import ModaleExperiences from './ModaleExperiences';
@@ -26,24 +26,30 @@ const Experiences = () => {
 const key = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTc4M2QyMGMwNTgzNTAwMTg1MjMwZjUiLCJpYXQiOjE3MDYxNzcxNDksImV4cCI6MTcwNzM4Njc0OX0.PHLuYb8nvyemb5r429V2sTosQ-mV9fJXAWr1yyjVp3g'
 
 
-const getExperiences = async () => {
-  try {
-    const response = await axios.get(
-      `https://striveschool-api.herokuapp.com/api/profile/${user._id}/experiences`,
-      {
-        headers: {
-          Authorization: key,
-        },
-      }
-    );
+  const getExperiences = async () => {
+    try {
+      const res = await fetch(
+        `https://striveschool-api.herokuapp.com/api/profile/${user._id}/experiences `,
+        {
+          headers: {
+            Authorization: key,
+          },
+        }
+      )
 
-    const data = response.data;
-    setExperience(data);
-  } catch (error) {
-    console.log('errore', error);
-    throw new Error('errore di carica ex su profilo!');
+      if (res.ok) {
+        const data = await res.json()
+         //console.log("mio", data);
+        setExperience(data)
+
+        //console.log('mio2', data)
+      } else {
+        throw new Error('errore di carica ex su profilo!')
+      }
+    } catch (error) {
+      console.log('errore', error)
+    }
   }
-};
 
   useEffect(() => {
     if (user.length !== 0) {
