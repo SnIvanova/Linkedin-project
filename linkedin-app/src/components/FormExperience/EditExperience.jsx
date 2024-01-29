@@ -5,7 +5,7 @@ import {
   getUserExperience,
   setSingleExperience,
   setToUpdate,
-} from "../../redux/action/ExperienceAction";
+} from "../../redux/actions/ExperienceAction";
 
 const EditExperience = ({ handleClose }) => {
   const dispatch = useDispatch();

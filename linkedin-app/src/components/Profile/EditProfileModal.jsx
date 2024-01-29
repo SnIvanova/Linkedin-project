@@ -4,7 +4,7 @@ import { Form } from 'react-bootstrap';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateProfile, updateProfileImage } from '../../redux/actions/user';
-import { henKey } from '../../dati';
+
 
 
 export default function EditProfileModal({ show, onHide, edit }) {
@@ -13,6 +13,8 @@ export default function EditProfileModal({ show, onHide, edit }) {
     const dispatch = useDispatch()
     const [previewUrl, setPreviewUrl] = useState(null);
     const [img, setImg] = useState(null);
+
+
     const handleChange = (e) => {
         const { name, value } = e.target;
         setUserProfile((prevData) => ({
@@ -23,12 +25,12 @@ export default function EditProfileModal({ show, onHide, edit }) {
 
     const handleSubmitInfo = (e) => {
         e.preventDefault();
-        dispatch(updateProfile(userProfile, henKey))
+        dispatch(updateProfile(userProfile))
     };
 
     const handleSubmitImage = (e) => {
         e.preventDefault();
-        dispatch(updateProfileImage(_id, img, henKey))
+        dispatch(updateProfileImage(_id, img))
     };
 
     const handleFileChange = (e) => {
@@ -105,14 +107,14 @@ export default function EditProfileModal({ show, onHide, edit }) {
             >
                 <Modal.Header closeButton>
                     <Modal.Title id="contained-modal-title-vcenter">
-                        Add a background photo
+                        Add a profile photo
                     </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <Form.Group controlId="formFile" className="">
-                        <Form.Control type="file" onChange = { handleFileChange } />
+                    <Form.Group controlId="formFile" className="" >
+                        <Form.Control type="file" name='profile' onChange = { handleFileChange } />
                     </Form.Group>
-                    {previewUrl && <img className='w-100 h-75' src={previewUrl} />}
+                    {img && <img className='w-100 h-75' src={img} />}
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant='secondary' onClick={() => onHide(!show)}>Close</Button>

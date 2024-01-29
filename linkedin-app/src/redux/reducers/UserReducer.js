@@ -4,7 +4,7 @@ import {
   SET_OTHER_PEOPLE,
   SET_THIS_PROFILE,
   SET_USER_ID,
-} from "../action/UserAction";
+} from "../actions/UserAction";
 
 const initialState = {
   myProfile: {}, //fetch profile/me

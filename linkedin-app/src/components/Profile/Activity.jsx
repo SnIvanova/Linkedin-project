@@ -39,8 +39,8 @@ export default function Activity() {
   };
 
   return (
-    <>
-    <Card className='w-100 rounded-5'>
+
+    <Card className='w-100 rounded-5 my-5'>
       <Card.Body className='d-flex justify-content-between'>
         <div>
             <Card.Title>Activity</Card.Title>

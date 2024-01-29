@@ -5,7 +5,7 @@ import {
   UPDATE_POST,
   DELETE_POST,
   SET_POST_ID,
-} from "../action/PostAction";
+} from "../actions/PostAction";
 
 const initialState = {
   posts: [],

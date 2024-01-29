@@ -8,7 +8,7 @@ import {
   createExperience,
   setNewExp,
   setSingleExperience,
-} from "../../redux/action/ExperienceAction";
+} from "../../redux/actions/ExperienceAction";
 
 function AddExperience({ handleClose }) {
   const dispatch = useDispatch();
