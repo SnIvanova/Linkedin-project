@@ -1,12 +1,13 @@
-//import { henKey } from '../dati';
+import { henKey } from "../../dati";
+import axios from 'axios'
 export const GET_USER = 'GET_USER';
 export const GET_CURRENT_USER = 'GET_CURRENT_USER';
 export const UPDATE_PROFILE = 'UPDATE_PROFILE';
 export const UPDATE_PROFILE_IMAGE = 'UPDATE_PROFILE_IMAGE';
 
-const key = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTc4M2QyMGMwNTgzNTAwMTg1MjMwZjUiLCJpYXQiOjE3MDYxNzcxNDksImV4cCI6MTcwNzM4Njc0OX0.PHLuYb8nvyemb5r429V2sTosQ-mV9fJXAWr1yyjVp3g'
+const key = henKey
 
-export const getUserMe = (key) => {
+export const getUserMe = () => {
   return async (dispatch) => {
     try {
       const res = await fetch('https://striveschool-api.herokuapp.com/api/profile/me', {
@@ -55,7 +56,7 @@ export const getUserProfile = (userId) => {
     };
   };
 
-  export const updateProfile = (key, updatedData, ) => {
+  export const updateProfile = (updatedData) => {
     return async (dispatch) => {
       try {
         console.log('Updating profile for userId:', userId);
@@ -93,37 +94,16 @@ export const getUserProfile = (userId) => {
     };
   };
 
-  export const updateProfileImage = (userId, updatedData, key) => {
-    return async (dispatch) => {
-      try {
+  export const updateProfileImage = (userId, updatedData) => {
+      const formData = new FormData();
+      formData.append('profile', updatedData);
+      axios.post(`https://striveschool-api.herokuapp.com/api/profile/${userId}/picture`,
+      formData,
+      {headers: {
+                 'Content-Type': 'multipart/form-data',
+                 "Authorization": key,
+      }}).catch(error => console.error(error) )
+      
 
-        const formData = new FormData();
-        formData.append('profile', updatedData);
-
-        const res = await fetch(
-          `https://striveschool-api.herokuapp.com/api/profile/${userId}/picture`,
-          {
-            method: 'PUT',
-            headers: {
-              'Content-Type': 'multipart/form-data',
-              Authorization: key,
-            },
-            body: formData,
-          }
-        );
-  
-        if (res.ok) {
-          const data = await res.json();
-  
-          dispatch({
-            type: UPDATE_PROFILE_IMAGE,
-            payload: data,
-          });
-        } else {
-          throw new Error('Error updating user profile');
-        }
-      } catch (error) {
-        console.error(error);
-      }
-    };
-  };
+    
+  }

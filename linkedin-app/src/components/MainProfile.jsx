@@ -10,7 +10,7 @@ import { useEffect, useState } from 'react';
 import EditProfileModal from './Profile/EditProfileModal';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUserMe } from '../redux/actions/user';
-import { henKey } from '../dati';
+
 
 
 export default function MainProfile() {
@@ -20,7 +20,7 @@ export default function MainProfile() {
 
   const userMe = useSelector(state => state.user.userMe)
   useEffect(() => {
-    dispatch(getUserMe(henKey))
+    dispatch(getUserMe())
 
   }, [])
   
@@ -35,7 +35,7 @@ export default function MainProfile() {
         <Card.Img variant='top' src={userMe.image} alt='Background Image' height={350} />
         <Row className="justify-content-start align-items-center position-absolute top-0 w-100">
           <Col xs={12} className=" d-flex justify-content-end"><div className='bg-white rounded-circle p-2 m-4'><Image src={profile_img} height={20} width={20} /></div></Col>
-          <Col xs={12} className=' d-flex justify-content-start mt-5' ><div className='bg-white rounded-circle p-5 m-5'onClick={()=> {setEdit('image');setModalShow(true)}} ><Image src={userMe.image} height={100} width={100} rounded /></div></Col>
+          <Col xs={12} className=' d-flex justify-content-start mt-5 p-5' > <Image className='mt-5 rounded-circle border border-5' src={userMe.image} height={200} width={200} onClick={()=> {setEdit('image');setModalShow(true)}} /></Col>
         </Row>
       </div>
       <Card.Body >
