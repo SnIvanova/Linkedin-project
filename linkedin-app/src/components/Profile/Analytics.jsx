@@ -7,7 +7,7 @@ import { FaArrowRightLong } from "react-icons/fa6";
 
 export default function Analytics() {
   return (
-    <Card className='w-100 rounded-5'>
+    <Card className='w-100 rounded-5 my-5'>
       <Card.Body >
             <Card.Title>Analytics</Card.Title>
             <Card.Text className='text-muted'><IoEyeSharp className='fs-5 me-2' />Private to you</Card.Text>

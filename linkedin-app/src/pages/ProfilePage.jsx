@@ -9,14 +9,15 @@ import Experience from '../components/Experience'
 
 export default function ProfilePage() {
     return (
-        <Row className='p-5'>
+        <Row className='container mx-auto mt-5'>
             <Col md={8}>
                 <MainProfile />
                 <Analytics />
                 <Activity />
                 <Experience/>
             </Col>
-            <Sidebar />
+                <Sidebar />
+            
         </Row>
     )
 }
