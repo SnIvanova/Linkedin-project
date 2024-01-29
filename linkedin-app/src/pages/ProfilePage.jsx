@@ -9,6 +9,7 @@ import Experience from '../components/Experience'
 
 export default function ProfilePage() {
     return (
+        <>
         <Row className='container mx-auto mt-5'>
             <Col md={8}>
                 <MainProfile />
@@ -17,7 +18,8 @@ export default function ProfilePage() {
                 <Experience/>
             </Col>
                 <Sidebar />
-            
         </Row>
+        <Footer />
+        </>
     )
 }
