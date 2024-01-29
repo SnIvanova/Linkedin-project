@@ -1,36 +1,39 @@
 
 .navbarSot {
-    display: flex;     
-    align-items: center;
+  display: flex;     
+  align-items: center;
 }
 
 
 .about h1 {
-  user-select: none;
+user-select: none;
 }
 
 .about .FaPen {
-  width: 2em;
-  height: 2em;
-  padding: 0.5em;
+width: 2em;
+height: 2em;
+padding: 0.5em;
 }
 
 .about .FaPen:hover {
-  background-color: rgb(235, 232, 232);
-  border-radius: 10vh;
-  z-index: 1;
+background-color: rgb(235, 232, 232);
+border-radius: 10vh;
+z-index: 1;
 }
 
 .labelAbout {
-  font-size: 0.8em;
+font-size: 0.8em;
 }
 
 
 
 p>a{font-size: small;
-  font-weight: 300;}
+font-weight: 300;}
+
+.fio{display:flex !important;
+  justify-content: end !important;}
 
 .perAziende {
-  width: 50em;
+width: 50em;
 }
 
