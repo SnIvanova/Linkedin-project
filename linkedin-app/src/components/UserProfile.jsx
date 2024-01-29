@@ -11,7 +11,7 @@ import Activity from '../components/Profile/Activity';
 import Analytics from '../components/Profile/Analytics';
 import Sidebar from '../components/Profile/Sidebar';
 import EditProfileModal from '../components/Profile/EditProfileModal'; 
-import Experiences from '../components/Profile/Experience';
+import Experiences from './Experience';
 //import ModaleExperiences from '../Expirience/ModaleExperiences'; 
 
 const UserProfile = () => {
