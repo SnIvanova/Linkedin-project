@@ -10,7 +10,9 @@ import { getUserProfile, updateProfile } from '../redux/actions/user';
 import Activity from '../components/Profile/Activity';
 import Analytics from '../components/Profile/Analytics';
 import Sidebar from '../components/Profile/Sidebar';
-import EditProfileModal from '../components/Profile/EditProfileModal';  
+import EditProfileModal from '../components/Profile/EditProfileModal'; 
+import Experiences from './Experience';
+//import ModaleExperiences from '../Expirience/ModaleExperiences'; 
 
 const UserProfile = () => {
   const { userId } = useParams();
@@ -81,6 +83,7 @@ const UserProfile = () => {
     </Card>
         <Analytics />
         <Activity />
+         <Experiences /> 
     </Col>
     <Sidebar />
     <EditProfileModal show={showModal} onHide={handleHideModal} onSave={handleSave} user={user} />
