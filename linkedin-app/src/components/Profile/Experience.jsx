@@ -26,7 +26,7 @@ const Experiences = () => {
 const key = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTc4M2QyMGMwNTgzNTAwMTg1MjMwZjUiLCJpYXQiOjE3MDYxNzcxNDksImV4cCI6MTcwNzM4Njc0OX0.PHLuYb8nvyemb5r429V2sTosQ-mV9fJXAWr1yyjVp3g'
 
 
-  cconst getExperiences = async () => {
+  const getExperiences = async () => {
     try {
       const res = await fetch(
         `https://striveschool-api.herokuapp.com/api/profile/${user._id}/experiences `,
