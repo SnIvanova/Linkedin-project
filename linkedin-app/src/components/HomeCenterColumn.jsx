@@ -11,7 +11,7 @@ import { SendPlus } from 'react-bootstrap-icons';
 export default function HomeCenterColumn({userImg}) {
 
     const posts = useSelector(state => state.post.posts)
-    posts.sort(()=> Math.ceil(Math.random()- 0.5)).splice(25)
+    const randPosts = posts.toSorted(()=> Math.ceil(Math.random()- 0.5)).slice(0,25)
     const dispatch = useDispatch()
 
     useEffect(() => {
@@ -37,7 +37,7 @@ export default function HomeCenterColumn({userImg}) {
                 </Card.Body>
             </Card >
 
-            {posts.map((post, i) => (
+            {randPosts.map((post, i) => (
                 <Card key={i} className='mt-3 px-3 pt-3'>
 
                     <Card.Title>{post.username}</Card.Title>

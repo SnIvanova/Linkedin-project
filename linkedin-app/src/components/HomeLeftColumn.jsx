@@ -14,8 +14,8 @@ export default function HomeLeftColumn({userMe}) {
             {userMe &&
                 <Card className='rounded-5'>
                     <Card.Img variant="top" src={userMe.image} height={80} />
-                    <Card.ImgOverlay className='d-flex justify-content-center align-items-end h-25 '>
-                        <Image src={userMe.image} alt='profile_img' className='mt-5' roundedCircle width={70} height={70} />
+                    <Card.ImgOverlay className='d-flex justify-content-center align-items-end h-25 mt-3 '>
+                        <Image src={userMe.image} alt='profile_img' className='mt-5 rounded-circle border border-5' roundedCircle width={70} height={70} />
                     </Card.ImgOverlay>
                     <Card.Body className='text-center mt-3'>
                         <Card.Title>Welcome, {userMe.name}</Card.Title>

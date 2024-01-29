@@ -117,7 +117,7 @@ import SearchComponent from "./Search";
             </Col>
             <Col>
               {" "}
-              <Link className="text-center nav-link" to={"/profile"}>
+              <Link className="text-center nav-link" to={"/profile/me"}>
                 <img
                   src={user.image}
                   alt="user"

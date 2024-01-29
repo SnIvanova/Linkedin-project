@@ -26,7 +26,7 @@ export default function MainProfile() {
   
   useEffect(() => {
 
-    userId ? dispatch(getUserProfile(userId)) : dispatch(getUserMe())
+    userId=== 'me' ?  dispatch(getUserMe()) :dispatch(getUserProfile(userId)) 
 
   }, [userId])
 
@@ -57,9 +57,8 @@ export default function MainProfile() {
                 <Button variant="outline-primary" className='rounded-pill py-2 mx-3 px-3'>Add profile section</Button>
                 <Button variant="outline-dark" className='rounded-pill py-2 px-3'>More</Button>
               </Col>
-              <Col className='d-flex '>
-                <img src={profile_img} alt="img" width={30} height={30} />
-                <Card.Text className='ms-1'>{userMe.bio} </Card.Text>
+              <Col className=' '>
+                <Card.Text className='ms-1'>About you: {userMe.bio} </Card.Text>
               </Col>
             </Row>
           </Card.Body>
