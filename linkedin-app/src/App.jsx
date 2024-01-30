@@ -9,6 +9,8 @@ import HomePage from './pages/HomePage';
 import MainProfile from './components/MainProfile';
 import Jobs from './components/Jobs'
 import Company from './components/Company'
+
+
 function App() {
   return (
     <BrowserRouter>

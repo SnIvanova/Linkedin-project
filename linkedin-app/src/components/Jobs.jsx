@@ -1,25 +1,15 @@
-import React, { useEffect, useState } from "react"
-import {
-  Card,
-  Col,
-  Container,
-  Form,
-  ListGroup,
-  ListGroupItem,
-  Row,
-} from "react-bootstrap"
-import { Briefcase, BuildingAdd, Check, ListCheck } from "react-bootstrap-icons"
-import { Link, useParams } from "react-router-dom"
-import "../App.css"
+import React, { useEffect, useState } from "react";
+import { Card, Col, Container, Form, Row } from "react-bootstrap";
+import { Briefcase, BuildingAdd } from "react-bootstrap-icons";
+import { Link, NavLink } from "react-router-dom";
+import "../App.css";
 
 const Jobs = () => {
-  const [jobsData, setJobsData] = useState([])
-  const [searchUs, setsearchUs] = useState("")
+  const [jobsData, setJobsData] = useState([]);
+  const [searchUs, setsearchUs] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("");
-  const params = useParams()
 
-
-useEffect(() => {
+  useEffect(() => {
     const apiUrl = selectedCategory
       ? `https://strive-benchmark.herokuapp.com/api/jobs?category=${selectedCategory}&limit=10`
       : `https://strive-benchmark.herokuapp.com/api/jobs?search=${searchUs}&limit=10`;
@@ -37,126 +27,107 @@ useEffect(() => {
       .catch((error) => console.error(error));
   }, [searchUs, selectedCategory]);
 
-
-
   return (
     <>
-    <Container>
-      <div className="container-fluid p-1 p-md-5">
-        <Form
-          className="d-flex flex-column align-items-center"
-          onSubmit={(e) => e.preventDefault()}
-        >
-
-          <Form.Control
-            type="search"
-            placeholder="Search jobs"
-            className="me-2 mb-4"
-            aria-label="Search"
-            value={searchUs}
-            onChange={(e) => setsearchUs(e.target.value)}
-            style={{ width: "100%" }}
-          />
-
-          <Form.Select
-            value={selectedCategory}
-            onChange={(e) => setSelectedCategory(e.target.value)}
-            style={{ width: "100%", maxWidth: "400px", margin: "10px 0" }}
+      <Container>
+        <div className="container-fluid p-1 p-md-5">
+          <Form
+            className="d-flex flex-column align-items-center"
+            onSubmit={(e) => e.preventDefault()}
           >
-            <option value="">Select Category</option>
-            {[
-              "Writing",
-              "Programming",
-              "Design",
-              
-            ].map((category, index) => (
-              <option key={index} value={category.toLowerCase()}>
-                {category}
-              </option>
-            ))}
-          </Form.Select>
+            {/* Search input */}
+            <Form.Control
+              type="search"
+              placeholder="Search jobs"
+              className="me-2 mb-4"
+              aria-label="Search"
+              value={searchUs}
+              onChange={(e) => setsearchUs(e.target.value)}
+              style={{ width: "100%" }}
+            />
 
-          <Row className="g-2">
-            {jobsData.data &&
-              jobsData.data
-                .filter((job) => {
-                  return (
-                    job.title.toLowerCase().includes(searchUs.toLowerCase()) ||
-                    job.category
-                      .toLowerCase()
-                      .includes(searchUs.toLowerCase()) ||
-                    job.company_name
-                      .toLowerCase()
-                      .includes(searchUs.toLowerCase())
-                  )
-                })
-                .slice(0, 100)
-                .map((job, i) => (
-                  <Col
-                    key={i}
-                    className={`col-12 col-md-4 col-lg-3 ${
-                      searchUs ? "d-block" : "d-none"
-                    }`}
-                  >
-                    <Card id="card" className="h-100">
-                      <Card.Body className="d-flex justify-content-between flex-column">
-                        <Card.Title>{searchUs ? job.title : ""}</Card.Title>
-                        <Card.Subtitle className="mb-2 text-muted">
-                          {searchUs ? job.category : ""}
-                        </Card.Subtitle>
-                        <div className="d-flex align-items-center justify-content-between">
-                          <div>
-                            {" "}
-                            <Card.Text>
-                              {searchUs ? job.candidate_required_location : ""}
-                            </Card.Text>
-                            <Card.Text>
-                              <span className="" style={{ fontSize: "12px" }}>
-                                Published at:
-                              </span>{" "}
-                              <br />
-                              {searchUs
-                                ? job.publication_date.substring(0, 10)
-                                : ""}
-                            </Card.Text>
-                          </div>
-                          <div className="d-flex flex-column">
-                            <button
-                              className="btn addJob rounded-pill text-nowrap text-truncate mb-1 "
-                              style={{
-                                fontSize: "16px",
-                                height: "40px",
-                                maxWidth: "143px",
-                              }}
-                            >
-                              <BuildingAdd className=" pb-1" />
-                              Apri annuncio
-                            </button>
-                            <Link to={`/Company/${job.company_name}`}>
+            {/* Category dropdown */}
+            <Form.Select
+              value={selectedCategory}
+              onChange={(e) => setSelectedCategory(e.target.value)}
+              style={{ width: "100%", maxWidth: "400px", margin: "10px 0" }}
+            >
+              <option value="">Select Category</option>
+              <option value="writing">Writing</option>
+              <option value="design">Design</option>
+              <option value="business">Business</option>
+             
+            </Form.Select>
+
+            {/* Jobs list */}
+            <Row className="g-2">
+              {jobsData.data &&
+                jobsData.data
+                  .slice(0, 10)
+                  .map((job, i) => (
+                    <Col
+                      key={i}
+                      className={`col-12 col-md-4 col-lg-3`}
+                    >
+                      <Card id="card" className="h-100">
+                        {/* Job details */}
+                        <Card.Body className="d-flex justify-content-between flex-column">
+                          <Card.Title>{job.title}</Card.Title>
+                          <Card.Subtitle className="mb-2 text-muted">
+                            {job.category}
+                          </Card.Subtitle>
+                          <div className="d-flex align-items-center justify-content-between">
+                            {/* Additional job details */}
+                            <div>
+                              {" "}
+                              <Card.Text>{job.candidate_required_location}</Card.Text>
+                              <Card.Text>
+                                <span className="" style={{ fontSize: "12px" }}>
+                                  Published at:
+                                </span>{" "}
+                                <br />
+                                {job.publication_date.substring(0, 10)}
+                              </Card.Text>
+                            </div>
+                            <div className="d-flex flex-column">
+                              {/* Buttons */}
                               <button
-                                className="btn addJob rounded-pill text-nowrap text-truncate  "
+                                className="btn addJob rounded-pill text-nowrap text-truncate mb-1 "
                                 style={{
                                   fontSize: "16px",
                                   height: "40px",
                                   maxWidth: "143px",
-                                  width: "143px",
                                 }}
                               >
-                                <Briefcase className=" pb-1" />
-                                {job.company_name}
+                                <BuildingAdd className=" pb-1" />
+                                Apri annuncio
                               </button>
-                            </Link>
+                              <Link to={`/Company/${job.company_name}`}>
+                                <button
+                                  className="btn addJob rounded-pill text-nowrap text-truncate  "
+                                  style={{
+                                    fontSize: "16px",
+                                    height: "40px",
+                                    maxWidth: "143px",
+                                    width: "143px",
+                                  }}
+                                >
+                                  <Briefcase className=" pb-1" />
+                                  {job.company_name}
+                                </button>
+                              </Link>
+                            </div>
                           </div>
-                        </div>
-                      </Card.Body>
-                    </Card>
-                  </Col>
-                ))}
-          </Row>
-        </Form>
-      </div> </Container>
+                        </Card.Body>
+                      </Card>
+                    </Col>
+                  ))}
+            </Row>
+          </Form>
+        </div>
+      </Container>
     </>
-   
-  )
-}
-export default Jobs
+  );
+};
+
+export default Jobs;

@@ -36,10 +36,10 @@ export default function Sidebar() {
         <Col md={4}>
             <Card className='rounded-5 mb-5 '>
                 <Card.Body >
-                    <Card.Title>Profile language <HiOutlinePencil className='fs-5 float-end' /></Card.Title>
+                    <Card.Title>Profile language <HiOutlinePencil className='fs-5 float-end iconSideBar' /></Card.Title>
                     <Card.Text className='text-muted'>English</Card.Text>
                     <br />
-                    <Card.Title>Profile profile & URL <HiOutlinePencil className='fs-5 float-end' /></Card.Title>
+                    <Card.Title>Profile profile & URL <HiOutlinePencil className='fs-5 float-end iconSideBar' /></Card.Title>
                     <Card.Text className='text-muted'>www.placeholder.com</Card.Text>
                 </Card.Body>
             </Card>
@@ -50,7 +50,7 @@ export default function Sidebar() {
                     <Card.Text className='text-muted'> Nomeplaceholder, make connections that matter most in your job search </Card.Text>
                     <Card.Img className='w-25' alt='linkedIn logo' src='' />
                     <Card.Title>See who's viewed your profile in the lst 90 days</Card.Title>
-                    <Button variant="outline-primary" className='rounded-pill py-2 fs-5 px-4'>Try for free!</Button>
+                    <Button variant="outline-primary" className='rounded-pill py-2 fs-5 px-4 hoverButtonBlue'>Try for free!</Button>
                 </Card.Body>
             </Card>
 
