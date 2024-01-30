@@ -37,6 +37,6 @@ export default function ProfilePage() {
                 <Sidebar  />
             </Row>}
             <Footer modfooter={true} />
-        </>
+
     )
 }
