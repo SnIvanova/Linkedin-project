@@ -6,30 +6,18 @@ import { Row, Col } from 'react-bootstrap'
 import { HiOutlinePencil } from "react-icons/hi2";
 import { BiCheckShield } from "react-icons/bi";
 import ProfileCarousel from './Profile/profileCarousel';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import EditProfileModal from './Profile/EditProfileModal';
-import { useDispatch, useSelector } from 'react-redux';
-import { getUserMe, getUserProfile } from '../redux/actions/user';
+
+
 import { useParams } from 'react-router-dom';
 
 
 
-export default function MainProfile() {
+export default function MainProfile({userMe}) {
 
-  const { userId } = useParams()
   const [modalShow, setModalShow] = useState(false);
-  const dispatch = useDispatch()
   const [edit, setEdit] = useState('')
-
-  const userMe = useSelector(state => state.user.userMe)
-
-  
-  useEffect(() => {
-
-    userId=== 'me' ?  dispatch(getUserMe()) :dispatch(getUserProfile(userId)) 
-
-  }, [userId])
-
 
 
   return (
@@ -39,9 +27,9 @@ export default function MainProfile() {
         <Card className='rounded-5'>
           <div className='position-relative'>
             <Card.Img variant='top' src={userMe.image} alt='Background Image' height={350} />
-            <Row className="justify-content-start align-items-center position-absolute top-0 w-100">
+            <Row className="justify-content-start align-items-center position-absolute top-0 w-100 h-75">
               <Col xs={12} className=" d-flex justify-content-end"><div className='bg-white rounded-circle p-2 m-4'><Image src={profile_img} height={20} width={20} /></div></Col>
-              <Col xs={12} className=' d-flex justify-content-start mt-5 p-5' > <Image className='mt-5 rounded-circle border border-5' src={userMe.image} height={200} width={200} onClick={() => { setEdit('image'); setModalShow(true) }} /></Col>
+              <Col xs={6} className=' d-flex justify-content-start mt-5 p-5' > <Image className='mt-5 rounded-circle border border-5' src={userMe.image} height={200} width={200} onClick={() => { setEdit('image'); setModalShow(true) }} /></Col>
             </Row>
           </div>
           <Card.Body >

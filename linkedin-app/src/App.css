@@ -56,4 +56,32 @@ width: 50em;
 
 .underlineParagraph {
   text-decoration: underline;
+  
+/* home center bottoni dei post*/
+
+.cardFooter > p:hover {
+  background-color: rgba(215, 213, 213, 0.535);
+  border-radius: 10%;
+}
+
+.outlineInfo:hover {
+  background-color: #0DCAF0;
+  color: black;
+}
+
+.element1:hover, .element2:hover, .element3:hover {
+  border-bottom: 1px solid #1065E5 !important;
+}
+
+.element2:hover {
+  border-bottom: 1px solid #f2b809 !important;
+}
+
+.element3:hover {
+  border-bottom: 1px solid #f2b809 !important;
+}
+
+.arcangelo {
+  background-color: white;
+  height: 180em;
 }
