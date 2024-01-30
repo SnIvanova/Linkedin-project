@@ -32,11 +32,11 @@ export default function ProfilePage() {
                     <MainProfile userMe={userMe} />
                     <Analytics />
                     <Activity username={userMe.username}/>
-                    {/* <Experience/> */}
+                    <Experience/>
                 </Col>
                 <Sidebar  />
             </Row>}
             <Footer modfooter={true} />
-
+        </>
     )
 }

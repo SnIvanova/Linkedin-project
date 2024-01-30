@@ -67,9 +67,6 @@ export const getUserProfile = (userId) => {
 
     return async (dispatch) => {
       try {
-        console.log('Updating profile for userId:', userId);
-        console.log('Updated data:', updatedData);
-  
         const res = await fetch(
           `https://striveschool-api.herokuapp.com/api/profile/`,
           {
