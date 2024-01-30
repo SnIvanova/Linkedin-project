@@ -17,7 +17,9 @@ export default function ProfilePage() {
                 <Activity />
                 <Experience/>
             </Col>
+
                 <Sidebar />
+
         </Row>
         <Footer />
         </>
