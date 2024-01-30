@@ -4,16 +4,13 @@ import { henKey } from '../dati';
 import { BiInfoSquare, BiPlus } from 'react-icons/bi';
 import { Linkedin } from 'react-bootstrap-icons';
 import Footer from './Footer';
-
 import { useNavigate } from 'react-router-dom';
 
 
 export default function HomeRightColumn() {
 
     const [userData, setUserData] = useState([])
-
     const navigate = useNavigate()
-
 
     const searchList = () => {
         fetch("https://striveschool-api.herokuapp.com/api/profile/", {
@@ -46,9 +43,8 @@ export default function HomeRightColumn() {
                     <Card.Body className='py-2' key={i}>
                         <Row>
                             <Col md={3}><Card.Img className='rounded-circle' alt='friend logo' src={user.image} height={60} width={60} /></Col>
-
+                            <Col md={9}>
                                 <Card.Text className='fw-bold m-0' onClick={()=> navigate('/profile/' + user._id) }>{user.name} {user.surname} <Linkedin className='text-success' /></Card.Text>
-
                                 <Card.Text className='text-muted m-0'>{user.title} </Card.Text>
                                 <Button variant="outline-secondary" className='rounded-pill py-2 px-4'> <BiPlus />  Follow</Button>
                             </Col>
