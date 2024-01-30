@@ -7,13 +7,18 @@ import { Link, NavLink } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import logo from "../assets/linkedin.svg";
 import SearchComponent from "./Search"; 
+import image from "../assets/cat.jpg";
+
 
   function NavbarL() {
     const [searchUs, setsearchUs] = useState("");
     const [userData, setUserData] = useState([]);
     const [showPerLeAziende, setShowPerLeAziende] = useState(false);
     const user = useSelector((state) => state.user);
-  
+
+
+
+
     const searchList = () => {
       fetch("https://striveschool-api.herokuapp.com/api/profile/", {
         headers: {
@@ -35,6 +40,7 @@ import SearchComponent from "./Search";
       searchList();
     }, [searchUs]);
 
+  
 
   return (
     <Navbar
@@ -69,7 +75,7 @@ import SearchComponent from "./Search";
             </Col>
             <Col>
               {" "}
-              <Nav.Link className="text-center" href="#pricing ">
+              <Nav.Link className="text-center" to="/AllUsers">
                 <PeopleFill className="fs-4" /> <br />
                 <span
                   style={{ fontSize: "14px" }}
@@ -99,7 +105,7 @@ import SearchComponent from "./Search";
                   style={{ fontSize: "14px" }}
                   className="d-none d-xl-inline"
                 >
-                  Messaggistica
+                  Messagi
                 </span>
               </Nav.Link>
             </Col>
@@ -119,7 +125,7 @@ import SearchComponent from "./Search";
               {" "}
               <Link className="text-center nav-link" to={"/profile/me"}>
                 <img
-                  src={user.image}
+                  src={image}
                   alt="user"
                   className="rounded-circle"
                   style={{ width: "24px", height: "24px" }}
