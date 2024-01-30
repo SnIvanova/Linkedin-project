@@ -19,7 +19,7 @@ export default function Footer({modfooter}) {
           <MDBRow className='mt-3 overflow-hidden'>
         
 
-            <MDBCol md="2" lg="2" xl="2" className='mx-auto mb-4'>
+            <MDBCol md="2" lg="2" xl="2" className='mx-auto mb-4 footer'>
              
               <p>
                 <a href='#!' className='text-reset ' >
@@ -49,7 +49,7 @@ export default function Footer({modfooter}) {
             </MDBCol>
 
 
-            <MDBCol md="3" lg="2" xl="2" className='mx-auto mb-4'>
+            <MDBCol md="3" lg="2" xl="2" className='mx-auto mb-4 footer'>
               
               <p>
                 <a href='#!' className='text-reset'>
@@ -77,7 +77,7 @@ export default function Footer({modfooter}) {
                 </a>
               </p>
             </MDBCol>
-            <MDBCol md="3" lg="2" xl="2" className='mx-auto mb-4'>
+            <MDBCol md="3" lg="2" xl="2" className='mx-auto mb-4 footer'>
 
         
 
@@ -149,7 +149,7 @@ export default function Footer({modfooter}) {
                 <MDBIcon fas icon="cog" className="me-3"/>
                 <h6>Sistema il tuo account</h6>
               </div>
-              <div>
+              <div className='mb-5'>
                 <MDBIcon fas icon="shield-alt" className="me-3"/>
                 <h6>Trasparenza </h6>
               </div>
