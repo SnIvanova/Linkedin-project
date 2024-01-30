@@ -9,7 +9,7 @@ import Footer from '../components/Footer'
 import { useDispatch, useSelector } from 'react-redux'
 import { getUserMe, getUserProfile } from '../redux/actions/user'
 import { useParams } from 'react-router-dom'
-
+import Risorse from "../components/Profile/Resources"
 
 
 
@@ -26,17 +26,21 @@ export default function ProfilePage() {
 
 
     return (
-        <>{userMe &&
+        <>
+        {userMe &&
             <Row className='container mx-auto mt-5'>
                 <Col md={8}>
                     <MainProfile userMe={userMe} />
                     <Analytics />
                     <Activity username={userMe.username}/>
-                    {/* <Experience/> */}
+                    <Experience/>
+                    <Risorse />
                 </Col>
                 <Sidebar  />
             </Row>}
             <Footer modfooter={true} />
 
+        </>
     )
+
 }

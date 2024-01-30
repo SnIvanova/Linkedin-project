@@ -63,7 +63,7 @@ import { TbGridDots } from "react-icons/tb";
         />
         <Nav className="m-auto">
           <Row className="align-items-center justify-content-around">
-            <Col>
+            <Col className="iconaU">
               {" "}
               <Link className="text-center nav-link" to={"/"}>
                 <HouseAddFill className="fs-4" /> <br />
@@ -75,7 +75,7 @@ import { TbGridDots } from "react-icons/tb";
                 </span>
               </Link>
             </Col>
-            <Col>
+            <Col className="iconaU">
               {" "}
               <Nav.Link className="text-center" to="/AllUsers">
                 <PeopleFill className="fs-4" /> <br />
@@ -87,7 +87,7 @@ import { TbGridDots } from "react-icons/tb";
                 </span>
               </Nav.Link>
             </Col>
-            <Col>
+            <Col className="iconaU">
               {" "}
               <Link className="text-center nav-link" to={"/Jobs"}>
                 <BiSolidBriefcase  className="fs-4" /> <br />
@@ -99,7 +99,7 @@ import { TbGridDots } from "react-icons/tb";
                 </span>
               </Link>
             </Col>
-            <Col>
+            <Col className="iconaU">
               {" "}
               <Nav.Link className="text-center" href="#pricing ">
                 <RiMessage3Fill  className="fs-4" /> <br />
@@ -111,7 +111,7 @@ import { TbGridDots } from "react-icons/tb";
                 </span>
               </Nav.Link>
             </Col>
-            <Col>
+            <Col className="iconaU">
               {" "}
               <Nav.Link className="text-center" href="#pricing ">
                 <BellFill className="fs-4" /> <br />
@@ -191,7 +191,7 @@ import { TbGridDots } from "react-icons/tb";
                       className="m-4 mt-2 border border-3  "
                       style={{ borderRadius: "20px" }}
                     >
-                      <h4 className="m-2">Scopri altri prodotti di LinkedIn</h4>
+                      <h4 className="m-2 sottolineato">Scopri altri prodotti di LinkedIn</h4>
                       <hr />
                       {/* ICONE */}
                       <Container className="d-flex flex-wrap p-2 wi">
@@ -313,22 +313,22 @@ import { TbGridDots } from "react-icons/tb";
                       className="m-4 border border-3  "
                       style={{ borderRadius: "20px" }}
                     >
-                      <h4 className="m-2">Scopri altro per il business</h4>
+                      <h4 className="m-2 sottolineato">Scopri altro per il business</h4>
                       <hr />
                       <div className="py-3">
                         <NavLink
                           style={{ color: "black" }}
                           className="text-start text-decoration-none"
                         >
-                          <h5 className="mx-4">Assumi su linkedIn</h5>
-                          <p className="mb-3 ms-4">Trova, attrai e assumi</p>
+                          <h5 className="mx-4 sottolineato">Assumi su linkedIn</h5>
+                          <p className="mb-3 ms-4 sottolineato">Trova, attrai e assumi</p>
                         </NavLink>
                         <NavLink
                           style={{ color: "black" }}
                           className="text-start   text-decoration-none"
                         >
-                          <h5 className="mx-4">Vendi con LinkedIn</h5>
-                          <p className="mb-3 ms-4">
+                          <h5 className="mx-4 sottolineato">Vendi con LinkedIn</h5>
+                          <p className="mb-3 ms-4 sottolineato">
                             Costruisci relazioni con i buyer
                           </p>
                         </NavLink>
@@ -336,8 +336,8 @@ import { TbGridDots } from "react-icons/tb";
                           style={{ color: "black" }}
                           className="text-start   text-decoration-none"
                         >
-                          <h5 className="mx-4">Offerta di lavoro gratuita</h5>
-                          <p className="mb-3 ms-4">
+                          <h5 className="mx-4 sottolineato">Offerta di lavoro gratuita</h5>
+                          <p className="mb-3 ms-4 sottolineato">
                             Trova candidati di qualità
                           </p>
                         </NavLink>
@@ -345,8 +345,8 @@ import { TbGridDots } from "react-icons/tb";
                           style={{ color: "black" }}
                           className="text-start   text-decoration-none"
                         >
-                          <h5 className="mx-4">Fai pubblicità su LinkedIn</h5>
-                          <p className="mb-3 ms-4">
+                          <h5 className="mx-4 sottolineato" >Fai pubblicità su LinkedIn</h5>
+                          <p className="mb-3 ms-4 sottolineato">
                             Acquisisci clienti e fai crescere la tua azienda
                           </p>
                         </NavLink>
@@ -354,7 +354,7 @@ import { TbGridDots } from "react-icons/tb";
                           style={{ color: "black" }}
                           className="text-start   text-decoration-none"
                         >
-                          <h5 className="mx-4">Impara con LinkedIn</h5>
+                          <h5 className="mx-4 sottolineato">Impara con LinkedIn</h5>
                           <p className="mb-3 ms-4">
                             Corsi per fornare i tuoi dipendenti
                           </p>
@@ -363,8 +363,8 @@ import { TbGridDots } from "react-icons/tb";
                           style={{ color: "black" }}
                           className="text-start   text-decoration-none"
                         >
-                          <h5 className="mx-4">Centro amministrazione</h5>
-                          <p className="mb-3 ms-4">
+                          <h5 className="mx-4 sottolineato">Centro amministrazione</h5>
+                          <p className="mb-3 ms-4 sottolineato">
                             Gestisci i dettagli di fatturazione e account
                           </p>
                         </NavLink>
@@ -373,7 +373,7 @@ import { TbGridDots } from "react-icons/tb";
                           style={{ color: "black" }}
                           className="text-start   text-decoration-none "
                         >
-                          <h5 className=" ms-4 d-flex  align-items-center">
+                          <h5 className=" ms-4 d-flex  align-items-center sottolineato">
                             Crea una pagina aziendale
                             <Plus className="ms-2" />{" "}
                           </h5>
