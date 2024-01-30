@@ -15,24 +15,30 @@ import "../App.css"
 const Jobs = () => {
   const [jobsData, setJobsData] = useState([])
   const [searchUs, setsearchUs] = useState("")
+  const [selectedCategory, setSelectedCategory] = useState("");
   const params = useParams()
-  useEffect(() => {
-    fetch(`https://strive-benchmark.herokuapp.com/api/jobs?search=${searchUs}`)
+
+
+useEffect(() => {
+    const apiUrl = selectedCategory
+      ? `https://strive-benchmark.herokuapp.com/api/jobs?category=${selectedCategory}&limit=10`
+      : `https://strive-benchmark.herokuapp.com/api/jobs?search=${searchUs}&limit=10`;
+
+    fetch(apiUrl)
       .then((response) => {
         if (!response.ok) {
-          throw new Error(`err`)
+          throw new Error(`Error fetching data`);
         }
-        return response.json()
+        return response.json();
       })
       .then((data1) => {
-        setJobsData(data1)
-        console.log(data1)
+        setJobsData(data1);
       })
-      .catch((error) => console.error(error))
-  }, [searchUs])
-  if (jobsData.data && jobsData.data.length > 1) {
-    console.log(jobsData.data[1])
-  }
+      .catch((error) => console.error(error));
+  }, [searchUs, selectedCategory]);
+
+
+
   return (
     <>
     <Container>
@@ -41,6 +47,7 @@ const Jobs = () => {
           className="d-flex flex-column align-items-center"
           onSubmit={(e) => e.preventDefault()}
         >
+
           <Form.Control
             type="search"
             placeholder="Search jobs"
@@ -50,6 +57,24 @@ const Jobs = () => {
             onChange={(e) => setsearchUs(e.target.value)}
             style={{ width: "100%" }}
           />
+
+          <Form.Select
+            value={selectedCategory}
+            onChange={(e) => setSelectedCategory(e.target.value)}
+            style={{ width: "100%", maxWidth: "400px", margin: "10px 0" }}
+          >
+            <option value="">Select Category</option>
+            {[
+              "Writing",
+              "Programming",
+              "Design",
+              
+            ].map((category, index) => (
+              <option key={index} value={category.toLowerCase()}>
+                {category}
+              </option>
+            ))}
+          </Form.Select>
 
           <Row className="g-2">
             {jobsData.data &&
