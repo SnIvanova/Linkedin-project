@@ -61,6 +61,7 @@ export default function Activity({ username }) {
 
   return (
     <>
+
       <Card >
         <Card.Body >
           <div className='d-flex justify-content-between'>
@@ -68,7 +69,7 @@ export default function Activity({ username }) {
               <Card.Title>Activity</Card.Title>
               <Card.Text>10 followers</Card.Text>
             </div>
-            <Button variant="outline-primary" className='rounded-pill py-2 fs-5 px-4' onClick={handleShow}>Create a post</Button>
+            <Button variant="outline-primary" className='rounded-pill py-2 fs-5 px-4 hoverButtonBlue' onClick={handleShow}>Create a post</Button>
           </div>
           {userPosts ?
             <div style={{ maxHeight: '500px', overflowY: 'scroll' }}>
@@ -101,12 +102,13 @@ export default function Activity({ username }) {
         </Card.Body>
         <Card.Footer className="text-muted text-center">
           <ListGroup.Item action >Show all activity {/* <FaArrowRightLong /> onClick={handleShow}>*/}</ListGroup.Item>
+
         </Card.Footer>
       </Card>
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Crea un Post</Modal.Title>
+          <Modal.Title className='hoverButtonBlue'>Crea un Post</Modal.Title>
         </Modal.Header>
         {/*<Modal.Header closeButton>
           <Modal.Title>Creat un Post</Modal.Title>
