@@ -54,7 +54,9 @@ const Jobs = () => {
             >
               <option value="">Select Category</option>
               <option value="writing">Writing</option>
-              {/* Add other category options as needed */}
+              <option value="design">Design</option>
+              <option value="business">Business</option>
+             
             </Form.Select>
 
             {/* Jobs list */}
