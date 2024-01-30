@@ -35,6 +35,7 @@ const Jobs = () => {
   }
   return (
     <>
+    <Container>
       <div className="container-fluid p-1 p-md-5">
         <Form
           className="d-flex flex-column align-items-center"
@@ -128,8 +129,9 @@ const Jobs = () => {
                 ))}
           </Row>
         </Form>
-      </div>
+      </div> </Container>
     </>
+   
   )
 }
 export default Jobs

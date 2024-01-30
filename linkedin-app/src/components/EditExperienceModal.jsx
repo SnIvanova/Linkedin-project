@@ -412,6 +412,26 @@ const EditExperienceModal = ({
               </Form.Text>
             </div>
             <div className="mt-4">
+              <h5 className="fw-bold">Skills</h5>
+              <p>
+              Si consiglia di aggiungere le 5 principali competenze utilizzate in questo ruolo. Appariranno anche nella .{' '}
+                <strong className="text-primary">sezione Competenze
+                  
+                </strong>
+              </p>
+
+                     
+              <Button
+                className="rounded-pill fw-bold"
+                variant="outline-primary fw-bold"
+              >
+                <Plus className="fs-4 fw-bold" /> Aggiungi Skills
+              </Button>
+            </div>
+
+
+
+            <div className="mt-4">
               <h5 className="fw-bold">Media</h5>
               <p>
                 Aggiungi contenuti multimediali come immagini, documenti, siti o
@@ -420,6 +440,8 @@ const EditExperienceModal = ({
                   tipi di file multimediali supportati
                 </strong>
               </p>
+
+                     {/*  ADD MEDIA */}
               <Button
                 className="rounded-pill fw-bold"
                 variant="outline-primary fw-bold"
