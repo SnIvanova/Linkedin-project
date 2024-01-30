@@ -30,6 +30,11 @@ font-size: 0.8em;
 p>a{font-size: small;
 font-weight: 300;}
 
+
+.fio{display:flex !important;
+  justify-content: end !important;}
+
+
 .perAziende {
 width: 50em;
 }

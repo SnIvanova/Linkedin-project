@@ -1,12 +1,17 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import userReducer from '../reducers/user';
+//import UserReducer from "../reducers/UserReducer";
+import PostReducer from "../reducers/PostReducer";
 
-const rootReducer = combineReducers({
+const  bigReducer = combineReducers({
   user: userReducer,
+  //user: UserReducer,
+  
+  post: PostReducer,
 });
 
 const store = configureStore({
-  reducer: rootReducer,
+  reducer: bigReducer,
 });
 
 export default store;

@@ -117,7 +117,7 @@ import SearchComponent from "./Search";
             </Col>
             <Col>
               {" "}
-              <Link className="text-center nav-link" to={"/profile"}>
+              <Link className="text-center nav-link" to={"/profile/me"}>
                 <img
                   src={user.image}
                   alt="user"
@@ -151,9 +151,10 @@ import SearchComponent from "./Search";
                   style={{
                     position: "absolute",
                     right: "0vw",
-                    width: "20vw",
+                    width: "25em",
                     height: "90vh",
                     border: "1px black",
+                    overflowY: "scroll",
                   }}
                   className={` per-le-aziende-content ${
                     showPerLeAziende ? "play-animation" : ""
@@ -163,7 +164,7 @@ import SearchComponent from "./Search";
                     className=" z-3 border"
                     style={{
                       backgroundColor: "white",
-                      height: "100%",
+                      height: "200%",
                       borderTopLeftRadius: "20px",
                       borderBottomLeftRadius: "20px",
                     }}
@@ -182,10 +183,10 @@ import SearchComponent from "./Search";
                       className="m-4 mt-2 border border-3  "
                       style={{ borderRadius: "20px" }}
                     >
-                      <h4 className="m-2">Scopri altri prodoti di LinkedIn</h4>
+                      <h4 className="m-2">Scopri altri prodotti di LinkedIn</h4>
                       <hr />
                       {/* ICONE */}
-                      <Container className="d-flex flex-wrap p-2">
+                      <Container className="d-flex flex-wrap p-2 wi">
                         <Row>
                           <Col className=" col-xs-1 col-sm-6 col-md-3 ">
                             <NavLink className="m-2 text-decoration-none">
@@ -230,7 +231,7 @@ import SearchComponent from "./Search";
                                 className="m-0 "
                                 style={{ fontSize: "0.8rem" }}
                               >
-                                Pubblica <br /> unofferta di <br />
+                                Pubblica <br /> un' offerta di <br />
                                 lavoro
                               </p>
                             </NavLink>

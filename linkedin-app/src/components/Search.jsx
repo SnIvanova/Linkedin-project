@@ -1,9 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { Form, ListGroupItem } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Search } from "react-bootstrap-icons";
 
 const SearchComponent = ({ searchUs, setsearchUs, userData }) => {
+  const location = useLocation();
+
+  useEffect(() => {
+    return () => {
+      setsearchUs("");
+    };
+  }, [location.pathname, setsearchUs]);
+
   const filteredUsers = userData
     .filter((user) => {
       return searchUs.startsWith("@")
@@ -34,7 +42,7 @@ const SearchComponent = ({ searchUs, setsearchUs, userData }) => {
           >
             <Link
               className="nav-link d-flex justify-content-between"
-              //to={`/profile/${user._id}`}
+              to={`/profile/${user._id}`}
             >
               <div className="p-1 w-100 d-flex align-items-center">
                 <Search className="me-3" />
