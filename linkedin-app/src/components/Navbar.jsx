@@ -1,14 +1,16 @@
 
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-import {BellFill,Briefcase,Bullseye,ChatDots,Compass,GraphUp,Grid3x3Gap,HouseAddFill,PeopleFill,PersonCheckFill,Plus,Search,X,Youtube,} from "react-bootstrap-icons";
+import {BellFill,Briefcase,Bullseye,Compass,GraphUp,Grid3x3Gap,HouseAddFill,PeopleFill,PersonCheckFill,Plus,Search,X,Youtube,} from "react-bootstrap-icons";
 import {Col,Container,Nav,Navbar,Row,} from "react-bootstrap";
 import { Link, NavLink } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import logo from "../assets/linkedin.svg";
 import SearchComponent from "./Search"; 
 import image from "../assets/cat.jpg";
-
+import { RiMessage3Fill } from "react-icons/ri";
+import { BiSolidBriefcase } from "react-icons/bi";
+import { TbGridDots } from "react-icons/tb";
 
   function NavbarL() {
     const [searchUs, setsearchUs] = useState("");
@@ -88,7 +90,7 @@ import image from "../assets/cat.jpg";
             <Col>
               {" "}
               <Link className="text-center nav-link" to={"/Jobs"}>
-                <Briefcase className="fs-4" /> <br />
+                <BiSolidBriefcase  className="fs-4" /> <br />
                 <span
                   style={{ fontSize: "14px" }}
                   className="d-none d-xl-inline"
@@ -100,7 +102,7 @@ import image from "../assets/cat.jpg";
             <Col>
               {" "}
               <Nav.Link className="text-center" href="#pricing ">
-                <ChatDots className="fs-4" /> <br />
+                <RiMessage3Fill  className="fs-4" /> <br />
                 <span
                   style={{ fontSize: "14px" }}
                   className="d-none d-xl-inline"
@@ -144,7 +146,7 @@ import image from "../assets/cat.jpg";
                 href="#pricing "
                 onClick={() => setShowPerLeAziende(!showPerLeAziende)}
               >
-                <Grid3x3Gap className="fs-4" /> <br />
+                <TbGridDots  className="fs-4" /> <br />
                 <span
                   style={{ fontSize: "14px" }}
                   className="d-none d-xl-inline text-nowrap"
