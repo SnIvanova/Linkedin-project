@@ -1,4 +1,4 @@
-import { henKey } from "../../dati";
+import { henKey, keyIvanova  } from "../../dati";
 import axios from 'axios'
 export const GET_USER = 'GET_USER';
 export const GET_CURRENT_USER = 'GET_CURRENT_USER';
@@ -111,11 +111,10 @@ export const getUserProfile = (userId) => {
       {headers: {
                  'Content-Type': 'multipart/form-data',
                  "Authorization": key,
-      }}).catch(error => console.error(error) )
+       }}).catch(error => console.error(error) )
       
+  } 
 
-    
-  }
 
   
   /*export const updateProfileImage = (userId, updatedData, key) => {
@@ -152,4 +151,5 @@ export const getUserProfile = (userId) => {
       }
     };
   };*/
+
 

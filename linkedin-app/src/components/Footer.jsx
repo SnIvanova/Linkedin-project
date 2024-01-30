@@ -2,7 +2,7 @@
 import React from 'react';
 import { MDBFooter, MDBContainer, MDBRow, MDBCol, MDBIcon } from 'mdb-react-ui-kit';
 
-export default function Footer() {
+export default function Footer({modfooter}) {
 
   return (
     <MDBFooter bgColor='light' className='text-center text-lg-start text-muted'>
@@ -16,7 +16,7 @@ export default function Footer() {
 
       <section className=''>
         <MDBContainer className='text-center text-md-start mt-5'>
-          <MDBRow className='mt-3'>
+          <MDBRow className='mt-3 overflow-hidden'>
         
 
             <MDBCol md="2" lg="2" xl="2" className='mx-auto mb-4'>
@@ -114,7 +114,7 @@ export default function Footer() {
               </p>
             </MDBCol>
 
-            <MDBCol md="4" lg="3" xl="3" className='mx-auto mb-md-0 mb-4'>
+            {modfooter && <MDBCol md="4" lg="3" xl="3" className='mx-auto mb-md-0 mb-4'>
 
               
               <p>
@@ -155,7 +155,7 @@ export default function Footer() {
               </div>
               
 
-            </MDBCol>
+            </MDBCol>}
           </MDBRow>
         </MDBContainer>
       </section>

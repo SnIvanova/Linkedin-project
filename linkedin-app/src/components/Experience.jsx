@@ -9,9 +9,10 @@ import {
 import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { format } from 'date-fns'
-
-
+//import ImageExperience from './ImageExperience'
+import logo from '../assets/apple.jpeg'
 import EditExperienceModal from './EditExperienceModal';
+import { keyIvanova } from '../dati'
 //import ModaleExperiences from './ModaleExperiences';
 
 
@@ -20,10 +21,10 @@ const Experiences = () => {
   const [experience, setExperience] = useState([])
   const user = useSelector((state) => state.user.userMe)
   const [showModal, setShowModal] = useState(false);
- 
+  //const [showImg, setShowImg] = useState(false)
   const [selectedExperience, setSelectedExperience] = useState()
 
-const key = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTc4M2QyMGMwNTgzNTAwMTg1MjMwZjUiLCJpYXQiOjE3MDYxNzcxNDksImV4cCI6MTcwNzM4Njc0OX0.PHLuYb8nvyemb5r429V2sTosQ-mV9fJXAWr1yyjVp3g'
+const key = keyIvanova
 
 
   const getExperiences = async () => {
@@ -109,6 +110,8 @@ const key = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTc4M2QyMGM
             </div>
           </Col>
         </Row>
+
+
         <EditExperienceModal
   onHide={handleModalClose}
   show={showModal}
@@ -124,7 +127,7 @@ const key = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NTc4M2QyMGM
               <div className="d-flex">
                 <div className="me-3">
                   <img
-                    src={"ex.image ? ex.image : logo"}
+                    src={ex.image ? ex.image : logo}
                     alt="immagine azienda"
                     style={{ width: '60px', height: '60px', cursor: 'pointer' }}
                     onClick={() => handelExperienceImgClick(ex)}
