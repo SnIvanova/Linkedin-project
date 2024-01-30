@@ -67,3 +67,27 @@ width: 50em;
   background-color: white;
   height: 180em;
 }
+
+.footer > p {
+  text-decoration: underline;
+}
+
+.welcomeUtente:hover {
+  text-decoration: underline;
+}
+
+.ombreggiatura:hover {
+ background-color: #EBEBEB;
+}
+
+.sottolineato:hover {
+  text-decoration: underline;
+}
+
+.sottolineato2 {
+  text-decoration: underline;
+}
+
+.iconaU:hover {
+  border-bottom: 1px solid black;
+}

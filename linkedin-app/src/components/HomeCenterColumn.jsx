@@ -64,7 +64,7 @@ export default function HomeCenterColumn({ userImg }) {
                         <Col md={2}><Card.Img className='rounded-circle' alt='friend logo' src={userImg} height={80} width={80} /></Col>
                         <Col md={10}><Button onClick={() => {
 
-                        }} variant='outline-secondary' className='rounded-pill py-3 text-start fs-5  ps-4 w-100' >Start a post </Button></Col>
+                        }} variant='outline-secondary' className='rounded-pill py-2 text-start fs-5  ps-4 w-100 mt-3' >Start a post </Button></Col>
                     </Row>
                     <div className='d-flex justify-content-between px-2 mt-3'>
                         <p className='d-flex align-items-center element1'><PiImageBold className='text-primary pe-2 fs-1' />  Media</p>
