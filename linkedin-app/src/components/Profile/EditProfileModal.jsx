@@ -30,7 +30,8 @@ export default function EditProfileModal({ show, onHide, edit }) {
 
     const handleSubmitImage = (e) => {
         e.preventDefault();
-        dispatch(updateProfileImage(_id, img))
+        edit === 'imageProfile' ? dispatch(updateProfileImage(_id, img)) : dispatch()
+        
     };
 
     const handleFileChange = (e) => {
@@ -107,14 +108,14 @@ export default function EditProfileModal({ show, onHide, edit }) {
             >
                 <Modal.Header closeButton>
                     <Modal.Title id="contained-modal-title-vcenter">
-                        Add a profile photo
+                        Upload photo
                     </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <Form.Group controlId="formFile" className="" >
                         <Form.Control type="file" name='profile' onChange = { handleFileChange } />
                     </Form.Group>
-                    {img && <img className='w-100 h-75' src={img} />}
+                    {img && <img className='w-100 h-75' src={previewUrl} />}
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant='secondary' onClick={() => onHide(!show)}>Close</Button>

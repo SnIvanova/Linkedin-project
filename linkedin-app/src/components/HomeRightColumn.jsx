@@ -5,10 +5,12 @@ import { BiInfoSquare, BiPlus } from 'react-icons/bi';
 import { Linkedin } from 'react-bootstrap-icons';
 import Footer from './Footer';
 import { useNavigate } from 'react-router-dom';
+import linkedinAd from '../assets/linkedinAd.png'
+
+
 
 
 export default function HomeRightColumn() {
-
     const [userData, setUserData] = useState([])
     const navigate = useNavigate()
 
@@ -42,11 +44,11 @@ export default function HomeRightColumn() {
                 {userData.map((user, i) => (i < 5 &&
                     <Card.Body className='py-2' key={i}>
                         <Row>
-                            <Col md={3}><Card.Img className='rounded-circle' alt='friend logo' src={user.image} height={60} width={60} /></Col>
+                            <Col md={3}><Card.Img className='rounded-circle' alt='friend logo' src={user.image} height={50} width={80} /></Col>
                             <Col md={9}>
                                 <Card.Text className='fw-bold m-0' onClick={()=> navigate('/profile/' + user._id) }>{user.name} {user.surname} <Linkedin className='text-success' /></Card.Text>
                                 <Card.Text className='text-muted m-0'>{user.title} </Card.Text>
-                                <Button variant="outline-secondary" className='rounded-pill py-2 px-4'> <BiPlus />  Follow</Button>
+                                <Button variant="outline-info" className='rounded-pill py-2 px-4 outlineInfo'> <BiPlus />  Follow</Button>{' '}
                             </Col>
                         </Row>
                     </Card.Body>
@@ -56,9 +58,9 @@ export default function HomeRightColumn() {
                 </Card.Footer>
             </Card>
             <Card>
-                <Card.Img src='https://media.licdn.com/media/AAYQAgTPAAgAAQAAAAAAADVuOvKzTF-3RD6j-qFPqhubBQ.png' alt='beh..' />
+                <Card.Img src={linkedinAd} alt='Linkedin_Hiring' />
             </Card>
-            <Footer />
+            <Footer modfooter={false}/>
         </>
     )
 }
