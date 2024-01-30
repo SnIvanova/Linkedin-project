@@ -16,7 +16,11 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<HomePage/>} />
- {/*        <Route path="/AllUsers" element={<AllUsers />} /> */}
+
+{/*<Route path="/AllUsers" element={<AllUsers />} />*/}
+
+        
+
         <Route path="/Jobs" element={<Jobs />} />
         <Route path="/Company/:companyId" element={<Company />} />
         <Route path="/profile/:userId" element={<ProfilePage />} />
