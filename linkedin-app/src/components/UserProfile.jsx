@@ -12,6 +12,7 @@ import Analytics from '../components/Profile/Analytics';
 import Sidebar from '../components/Profile/Sidebar';
 import EditProfileModal from '../components/Profile/EditProfileModal'; 
 import Experiences from './Experience';
+import Interessi from "../components/Profile/Interests"
 //import ModaleExperiences from '../Expirience/ModaleExperiences'; 
 
 const UserProfile = () => {
@@ -82,6 +83,7 @@ const UserProfile = () => {
       </Card.Footer>
     </Card>
         <Analytics />
+        <Interessi />
         <Activity />
          <Experiences /> 
     </Col>
