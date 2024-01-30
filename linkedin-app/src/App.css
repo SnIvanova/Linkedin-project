@@ -39,3 +39,21 @@ font-weight: 300;}
 width: 50em;
 }
 
+/* profilo */
+
+.hoverButtonBlue:hover {
+  background-color: rgb(215, 232, 247) !important;
+}
+
+.hoverButtonBlack:hover {
+  background-color: rgb(206, 210, 212) !important;
+}
+
+.iconSideBar:hover {
+  background-color: rgb(201, 198, 198);
+  border-radius: 50%;
+}
+
+.underlineParagraph {
+  text-decoration: underline;
+}

@@ -49,13 +49,13 @@ export default function MainProfile() {
             <Row>
               <Col md={8}>
                 <Card.Title className='fs-1 d-inline-block m-0 me-2'>{userMe.name} {userMe.surname} </Card.Title>
-                <Button variant='outline-primary' className=' rounded-pill'><BiCheckShield className='fs-4' />  Get verified</Button>
+                <Button variant='outline-primary' className=' rounded-pill hoverButtonBlue'><BiCheckShield className='fs-4' />  Get verified</Button>
                 <Card.Text className='fw-bold'>{userMe.title} </Card.Text>
                 <Card.Text className='text-muted mb-2'>{userMe.area} <a variant='link' className='text-decoration-none'>Contact info</a></Card.Text>
                 <Card.Text className='text-primary my-1'> connections </Card.Text>
                 <Button variant="primary" className='rounded-pill py-2 px-3'>Open to</Button>
-                <Button variant="outline-primary" className='rounded-pill py-2 mx-3 px-3'>Add profile section</Button>
-                <Button variant="outline-dark" className='rounded-pill py-2 px-3'>More</Button>
+                <Button variant="outline-primary" className='rounded-pill py-2 mx-3 px-3 hoverButtonBlue'>Add profile section</Button>
+                <Button variant="outline-dark" className='rounded-pill py-2 px-3 hoverButtonBlack'>More</Button>
               </Col>
               <Col className=' '>
                 <Card.Text className='ms-1'>About you: {userMe.bio} </Card.Text>

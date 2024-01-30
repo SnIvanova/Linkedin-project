@@ -49,19 +49,19 @@ export default function Activity() {
             <Card.Text>Posts you share will be displayed here.</Card.Text>
         </div>
         <div className='d-flex align-items-baseline'>
-            <Button variant="outline-primary" className='rounded-pill py-2 fs-5 px-4' onClick={handleShow}>Create a post</Button>
+            <Button variant="outline-primary" className='rounded-pill py-2 fs-5 px-4 hoverButtonBlue' onClick={handleShow}>Create a post</Button>
             <Button variant="light" className='fs-3 ms-2'>{/* <HiOutlinePencil /> onClick={handleShow}>*/}</Button>
         </div>
         
       </Card.Body>
       <Card.Footer className="text-muted text-center">
-        <ListGroup.Item action >Show all activity {/* <FaArrowRightLong /> onClick={handleShow}>*/}</ListGroup.Item>
+        <ListGroup.Item action className='underlineParagraph' >Show all activity {/* <FaArrowRightLong /> onClick={handleShow}>*/}</ListGroup.Item>
         </Card.Footer>
     </Card>
 
     <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Crea un Post</Modal.Title>
+          <Modal.Title className='hoverButtonBlue'>Crea un Post</Modal.Title>
         </Modal.Header>
         {/*<Modal.Header closeButton>
           <Modal.Title>Creat un Post</Modal.Title>
