@@ -36,12 +36,13 @@ export default function ProfilePage() {
                     <Activity username={userMe.username}/>
                     <Experience/>
                     <Interessi />
+
                     <Risorse />
+
                 </Col>
                 <Sidebar  />
             </Row>}
             <Footer modfooter={true} />
-
         </>
     )
 
