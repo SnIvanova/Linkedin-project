@@ -10,6 +10,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { getUserMe, getUserProfile } from '../redux/actions/user'
 import { useParams } from 'react-router-dom'
 import Risorse from "../components/Profile/Resources"
+import Interessi from "../components/Profile/Interests"
 
 
 
@@ -34,6 +35,7 @@ export default function ProfilePage() {
                     <Analytics />
                     <Activity username={userMe.username}/>
                     <Experience/>
+                    <Interessi />
                     <Risorse />
                 </Col>
                 <Sidebar  />
