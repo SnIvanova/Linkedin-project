@@ -145,6 +145,7 @@ export default function Activity({ username }) {
           <Button variant="primary" onClick={() => {
             dispatch(createPost(postContent, img))
             console.log(postContent)
+            handleClose();
           }
           }>
 
